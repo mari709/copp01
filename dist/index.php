@@ -1,9 +1,20 @@
+<!---- Verificamos que el usuario esta logeado al sistema  ---->
 <?php
 
-require(metodosDePHP.php);
+//session_start();
 
+include_once("metodosDePHP.php");
+Seguridad::testSeguridad();
+
+
+# Esta prueba funciona ....
+//if($_SESSION["autentificado"] != "Si"){
+	//header ("Location: https://drama.fandom.com/es/wiki/Death_note:_L_Change_the_world");
+//}
 
 ?>
+<!--------------------------------------------------------------->
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -22,15 +33,19 @@ require(metodosDePHP.php);
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Coppens</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="esto lo vamos a quitar..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
+            
+<!---- Navbar Search------------------------------------------------------------------------------------------------------------------->
+<!---- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"> ---->
+<!---- <div class="input-group"> ---->
+<!---- <input class="form-control" type="text" placeholder="esto lo vamos a quitar..." aria-label="Search" aria-describedby="basic-addon2" /> ---->
+<!---- <div class="input-group-append"> ---->
+<!---- <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button> ---->
+<!---- </div> ---->
+<!---- </div> ---->
+<!---- </form> ---->
+<!------------------------------------------------------------------------------------------------------------------------------------->            
+            
+            
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0"> <!-- ver que clases usar para quitar la barra de busqueda y que quede este menu a la derecha-->
                 <li class="nav-item dropdown">
