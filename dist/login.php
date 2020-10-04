@@ -19,8 +19,8 @@
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
 
-<!--------------------------------------------------------------------------------------->                                    
-<div class="card-header"><h3 class="text-center font-weight-light my-4">Ingreso</h3></div>
+<!----Titulo de página------------------------------------------------------------------->                                    
+<div class="card-header"><h3 class="text-center font-weight-light my-4"><?php if(empty($_GET["errorusuario"])){ ?>Ingreso <?php } else if ($_GET["errorusuario"]=="si") { ?>Ingreso : usuario o contraseña <FONT COLOR="red">incorrecto</FONT> <?php } ?></h3></div>
 <!--------------------------------------------------------------------------------------->
                                     
                                     <div class="card-body">
@@ -32,15 +32,15 @@
 
 <!----"Label" e "Input" de Email-------------------------------------------------------------------------->                                        
 <div class="form-group">
-<label class="small mb-1" for="inputEmailAddress"> <?php if($_GET["errorusuario"]=="si"){?>Email Incorrecto<?php } ?></label>
-<input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Ingresa tu email" /> <!-- id="inputEmailAddress" -->
+<label class="small mb-1" for="inputEmailAddress"> <?php if(empty($_GET["errorusuario"])){ ?> Email <?php } else if($_GET["errorusuario"]=="si"){?>Email Incorrecto <?php } ?></label>
+<input class="form-control py-4" id="inputEmailAddress" name="inputEmailAddress" type="email" placeholder="Ingresa tu email" /> <!-- id="inputEmailAddress" -->
 </div>
 <!-------------------------------------------------------------------------------------------------------->
                                             
 <!----"Label" e "Input" de Contraseña -------------------------------------------------------------------->                                            
 <div class="form-group">
 <label class="small mb-1" for="inputPassword">Contraseña</label>
-<input class="form-control py-4" id="inputPassword" type="password" placeholder="Ingresa tu contraseña" /> <!-- id="inputPassword" -->
+<input class="form-control py-4" id="inputPassword" name="inputPassword" type="password" placeholder="Ingresa tu contraseña" /> <!-- id="inputPassword" -->
 </div>
 <!-------------------------------------------------------------------------------------------------------->
                                             
@@ -52,10 +52,15 @@
                                                 </div>
                                             </div>
                                             
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Olvidé mi contraseña</a>
-                                                <a class="btn btn-primary" href="index.html">Ingresar</a>
-                                            </div>
+
+<!---- "Div" , aqui se encuentran botones de "Olvide mi contraseña" e "Ingresar" ---------->
+<div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+<a class="small" href="password.html">Olvidé mi contraseña</a>
+<!-- <a class="btn btn-primary" href="index.html">Ingresar</a> --><!--Codigo original!! -->
+<input class="btn btn-primary" type="Submit" value="Ingresar"></td> <!--Codigo editado!!-->
+</div>
+<!----------------------------------------------------------------------------------------->
+
 
 
 </form>
