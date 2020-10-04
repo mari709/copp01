@@ -52,7 +52,7 @@ Seguridad::testSeguridad();
             
 <!---- Navbar ------------------------------------------------------------------------------------------------------------------------>
 <!---- Inicio : lista ---->
-<ul class="navbar-nav ml-auto ml-md-0"> <!-- ver que clases usar para quitar la barra de busqueda y que quede este menu a la derecha-->
+<ul class="navbar-nav ml-auto">
 
 <!---- Inicio : Elemento #1 ---->                
 <li class="nav-item dropdown">
@@ -60,7 +60,7 @@ Seguridad::testSeguridad();
 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
              
 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-<a class="dropdown-item" href="/copp01/dist/login.php">Cerrar sesión</a>
+<a class="dropdown-item" href="./login.php">Cerrar sesión</a>
 </div>
                 
 </li>
@@ -166,8 +166,6 @@ Seguridad::testSeguridad();
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
