@@ -84,7 +84,7 @@ public static function testSeguridad(){
 	
 	if ($_SESSION["autentificado"] != "Si") {
     //si no existe, envio a la p�gina de autentificacion
-    header("Location: login.php"); //   /copp01/dist/login.php
+    header("Location: ./login.php"); //   /copp01/dist/login.php
     //ademas salgo de este script
     
     
@@ -127,7 +127,7 @@ public static function tiempoPermanencia(){
 	 	
 	 	//reedirijimos al usuario a la p�gina de autenticaci�n...
 	 	
-	 	header("Location: login.php");
+	 	header("Location: ./login.php");
 	 	
 	 	
 	 	exit();
