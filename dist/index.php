@@ -1,7 +1,7 @@
 <!---- Verificamos que el usuario esta logeado al sistema  ---->
 <?php
-
-//session_start();
+session_name("loginUsuario"); 
+session_start();
 
 include_once("metodosDePHP.php");
 Seguridad::testSeguridad();
@@ -29,8 +29,12 @@ Seguridad::testSeguridad();
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+
+
+<!----Inicio "body" -->    
+<body class="sb-nav-fixed">
+        
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Coppens</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             
@@ -46,15 +50,27 @@ Seguridad::testSeguridad();
 <!------------------------------------------------------------------------------------------------------------------------------------->            
             
             
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0"> <!-- ver que clases usar para quitar la barra de busqueda y que quede este menu a la derecha-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="login.html">Cerrar sesión</a>
-                    </div>
-                </li>
-            </ul>
+<!---- Navbar ------------------------------------------------------------------------------------------------------------------------>
+<!---- Inicio : lista ---->
+<ul class="navbar-nav ml-auto ml-md-0"> <!-- ver que clases usar para quitar la barra de busqueda y que quede este menu a la derecha-->
+
+<!---- Inicio : Elemento #1 ---->                
+<li class="nav-item dropdown">
+
+<a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+             
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+<a class="dropdown-item" href="/copp01/dist/login.php">Cerrar sesión</a>
+</div>
+                
+</li>
+<!---- Fin : Elemento #1 ---->
+
+</ul>
+<!---- Fin : lista ---->            
+<!------------------------------------------------------------------------------------------------------------------------------------->            
+       
+       
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
