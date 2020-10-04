@@ -5,7 +5,7 @@ session_start();
 
 include_once("metodosDePHP.php");
 Seguridad::testSeguridad();
-
+Seguridad::integridadSistema();
 
 # Esta prueba funciona ....
 //if($_SESSION["autentificado"] != "Si"){
