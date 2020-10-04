@@ -150,11 +150,41 @@ public static function tiempoPermanencia(){
 
 
 
+/*---- Funcion: "integridadSistema", destinada a verificar que los elementos del sistema se encuentrer correctamente antes de usarse -----*/
 
-
-
-
-
+public static function  integridadSistema(){
+	
+	//$trans_sid = ini_get(session.use_trans_sid);
+	
+	if(ini_get("session.use_trans_sid") != 0){
+		
+		//header("Location: 404.html");
+		
+		ini_set("session.use_trans_sid","0");
+		
+	}
+	
+	if(ini_get("session.use_only_cookies") != 1){
+		
+		//header("Location: 404.html");
+		
+		ini_set("session.use_only_cookies","1");
+		
+	}
+	
+	
+	if(ini_get("session.cookie_lifetime") != 0){
+		
+		//header("Location: 404.html");
+		
+		ini_set("session.cookie_lifetime","0");
+		
+	}
+	
+	
+	
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 
