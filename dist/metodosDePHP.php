@@ -28,7 +28,7 @@ if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 function testVerificacionLogin(){
 	
 	if($_POST['inputEmailAddress']=="admin@hotmail.com" && $_POST['inputPassword']=="12345"){
-	//Si el metodo "if" se cumple, tanto la contraseña como el email son válidos...
+	//Si el metodo "if" se cumple, tanto la contraseï¿½a como el email son vï¿½lidos...
 	
 	//Limpio los elementos del array() "$_POST" , tanto "inputEmailAddress" como "inputPassword" , no hace falta en realidad por que una vez cruzado este punto, se ejecutara un "header()" donde ya nada queda almacenado, pero si en vez de eso se decide utilizar un "include()" sera 100% necesario limpiar las varianbles puesto que si no se ejecutara el if del inicio del script que ejecuta "testVerificacionLogin()"
 	
@@ -46,20 +46,20 @@ function testVerificacionLogin(){
 	
 	$_SESSION["autentificado"] = "Si";
 	
-	// Defino la fecha y hora de inicio de sesión en formato "aaaa-mm-dd hh:mm:ss"
+	// Defino la fecha y hora de inicio de sesiï¿½n en formato "aaaa-mm-dd hh:mm:ss"
 	
 	$_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
 	
-	// incluyo o incorporo la página "index.php"
+	// incluyo o incorporo la pï¿½gina "index.php"
 	
 	//include ("index.php");
-	//header("Location: /copp01/dist/index.php"); // Se redirecciona el usuario a...
+	//header("Location: ./index.php"); // Se redirecciona el usuario a...
 	header("Location: index.php");
 	}
 	
 	else{
-		//El usuario y/o la contraseña no fueron correctamente ingresados....
-		 header("Location: /copp01/dist/login.php?errorusuario=si"); //Observar que se agrega "errorusuario=si" al link, al ser redireccionado, este dato sera 
+		//El usuario y/o la contraseï¿½a no fueron correctamente ingresados....
+		 header("Location: ./login.php?errorusuario=si"); //Observar que se agrega "errorusuario=si" al link, al ser redireccionado, este dato sera 
 		 											     	         //utilizado.
 		
 	}
@@ -75,7 +75,7 @@ class Seguridad{
 	
 
 
-/*---- Funcion "Test" de "Seguridad" , sirve para verificar en cada página del sistema si el usuario esta logeado o no  ----*/
+/*---- Funcion "Test" de "Seguridad" , sirve para verificar en cada pï¿½gina del sistema si el usuario esta logeado o no  ----*/
 # Es un metodo "static"
 public static function testSeguridad(){
 	
@@ -83,7 +83,7 @@ public static function testSeguridad(){
 	//header("Location: http://en.gameslol.net/yu-gi-oh-gx-duel-academy-1025.html");
 	
 	if ($_SESSION["autentificado"] != "Si") {
-    //si no existe, envio a la página de autentificacion
+    //si no existe, envio a la pï¿½gina de autentificacion
     header("Location: login.php"); //   /copp01/dist/login.php
     //ademas salgo de este script
     
@@ -101,7 +101,7 @@ public static function testSeguridad(){
 
 
 
-/*---- Funcion "tiempoPermanencia", si el usuario supera los 10 minutos sera enviado a la paágina de login  ---- */
+/*---- Funcion "tiempoPermanencia", si el usuario supera los 10 minutos sera enviado a la paï¿½gina de login  ---- */
 public static function tiempoPermanencia(){
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
 	
@@ -118,14 +118,14 @@ public static function tiempoPermanencia(){
 	
 	#Procedemos a comparar el tiempo transcurrido con el limite que fijemos nosotros como maximo... 
 	 
-	 if($tiempo_transcurrido >= 600){
+	 if($tiempo_transcurrido >= 60){
 	 	//es decir, suponemos que se cumple que el tiempo transcurrido es mayor a 600 segundos o lo que es lo mismo 10 minutos...
 	 	
 	 	// Procedemos a destruir la sesion actual ...
 	 	
 	 	session_destroy();
 	 	
-	 	//reedirijimos al usuario a la página de autenticación...
+	 	//reedirijimos al usuario a la pï¿½gina de autenticaciï¿½n...
 	 	
 	 	header("Location: login.php");
 	 	
