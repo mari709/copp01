@@ -4,8 +4,9 @@ session_name("loginUsuario");
 session_start();
 
 include_once("metodosDePHP.php");
-Seguridad::testSeguridad();
 Seguridad::integridadSistema();
+Seguridad::testSeguridad();
+
 
 # Esta prueba funciona ....
 //if($_SESSION["autentificado"] != "Si"){
@@ -83,6 +84,7 @@ Seguridad::integridadSistema();
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
+                    
                         <h1 class="mt-4">Principal</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Principal</li>
