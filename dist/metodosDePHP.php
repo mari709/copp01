@@ -24,7 +24,7 @@ if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 /*--------------------------------------------------------------------------------------------------*/
 
 
-/*---- Funcion "Test" para verificar si ingreso se realizo de manera correcta o no -----*/
+/*---- Funcion "Test" para verificar si ingreso se realizo de manera correcta o no (Temporal) -----*/
 function testVerificacionLogin(){
 	
 	if($_POST['inputEmailAddress']=="admin@hotmail.com" && $_POST['inputPassword']=="12345"){
@@ -69,6 +69,13 @@ function testVerificacionLogin(){
 /*--------------------------------------------------------------------------------------*/
 
 
+/*---- Test de verificación Login (Definitivo)  ----------------------------------------*/
+function testVerificacionLoginFinal(){
+	
+	
+}
+/*--------------------------------------------------------------------------------------*/
+
 
 /*----Inicio: Clase seguridad----*/
 class Seguridad{
@@ -92,7 +99,8 @@ public static function testSeguridad(){
     exit();
 }
 	else{ 
-	self::tiempoPermanencia();
+	self::tiempoPermanencia();  // Aca deberia verificar con un si existe una cookie que solicita "Recordar usaurio" y si esta habilitada
+								// ... de ser asi, nunca deberia ejecutarse "tiempoPermanencia()"
 
 		}
 }
@@ -103,9 +111,11 @@ public static function testSeguridad(){
 
 /*---- Funcion "tiempoPermanencia", si el usuario supera los 10 minutos sera enviado a la pa�gina de login  ---- */
 public static function tiempoPermanencia(){
+	
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
 	
-	//Vamos a proceder a calcular el tiempo transcurrido desde el ultimo acceso...
+	#Vamos a proceder a calcular el tiempo transcurrido desde el ultimo acceso...
+	
 	//Creamos una variable de nombre "fechaGuardada" a la que le almacenamos la fecha del ultimo acceso extraida de la sesion... 
 	$fechaGuardada = $_SESSION["ultimoAcceso"];
 	//Creamos una variable de nombre "ahora" donde almacenamos la fecha y hora de acceso actual...
@@ -153,6 +163,38 @@ public static function tiempoPermanencia(){
 /*---- Funcion: "integridadSistema", destinada a verificar que los elementos del sistema se encuentrer correctamente antes de usarse -----*/
 
 public static function  integridadSistema(){
+	
+	# Intentamos establecer una conexion con la Base de Datos...
+	
+	$usernameBD = "root";
+	$passwordBD = "";
+	$hostBD = "127.0.0.1";
+	
+	global $dbConnect;   
+	
+	/**
+	* Almacenamos en una variable el alias de la funcion "mysqli::__construct", Que permite abrir una conexion al servidor de MySQL.
+	* La sintaxis oficial segun la pagina de PHP es : $dbConnect = new mysqli_connect ... (la diferencia es el "new").
+	* Basicamente , "$dbConnect" es una instancia del objeto "mysqli_connect" y posee todas sus propiedades (como por ejemplo sus metodos.
+	*/
+    
+    $dbConnect =  mysqli_connect($hostBD, $usernameBD, $passwordBD) 
+                                                               
+     /**
+	 * En caso que no se pueda establecer la conexion aparece este mensaje. 
+	 */                                                      
+                                                               
+     or die("Unable to connect to MySQL.");
+     
+     
+     /**
+	 * Si se establece correctamente , el mensaje es este.
+	 */
+     
+     //echo "Connected to MySQL","<br><br>"; 
+	
+	
+	# Verificamos que las lineas de php.ini estan configuradas tal como las necesitamos....
 	
 	//$trans_sid = ini_get(session.use_trans_sid);
 	
