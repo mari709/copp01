@@ -48,9 +48,9 @@ Seguridad::integridadSistema();
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Principal</h1>
-                        <ol class="breadcrumb mb-4">
+                       <!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Principal</li>
-                        </ol>
+                        </ol> -->
                         <div class="row">
                             <div class="col-xl-3 col-md-6 col-6 ">
                                 <div class="card bg-primary text-white mb-4">
@@ -74,8 +74,7 @@ Seguridad::integridadSistema();
                         
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                Responde a las solicitudes de pedidos:
+                                <h2>Responde a las solicitudes de pedidos</h2>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
