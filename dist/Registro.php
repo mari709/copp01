@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,9 +18,25 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Crear usuario</h3></div>
                                     <div class="card-body">
                                         <form>
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <fieldset>
+                                                        <legend class="small mb-1">Indique tipo de usuario a crear</legend>
+                                                        <label for="viajante"><input id="viajante"  value="viajante" type="radio" name="grupotipoviajante"> Viajante</label>
+                                                        <label for="administrador"><input id="administrador" value="administrador" type="radio" name="grupotipoviajante"> Administrador</label>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <fieldset>
+                                                        <legend class="small mb-1">Estado del viajante</legend>
+                                                        <label for="eviajanteh"><input id="eviajanteh" value="habilitado" type="radio" name="grupoestadoviajante"> Habilitado</label>
+                                                        <label for="eviajantea"><input id="eviajantea" value="deshabilitado" type="radio" name="grupoestadoviajante"> Deshabilitado</label>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -53,11 +69,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
+                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.html">Agregar usuario</a></div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="login.php">Have an account? Go to login</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -66,19 +82,7 @@
                 </main>
             </div>
             <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+                <?php include("php/includes/footer.php"); ?>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
