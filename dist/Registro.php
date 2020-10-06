@@ -20,13 +20,18 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" />
-                                                    </div>
+                                        
+
+<form>
+
+
+<div class="form-row">
+<div class="col-md-6">
+                                                    
+<div class="form-group">
+<label class="small mb-1" for="inputFirstName">First Name</label>
+<input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" />
+</div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -34,7 +39,9 @@
                                                         <input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" />
                                                     </div>
                                                 </div>
-                                            </div>
+                                            
+</div>
+                                            
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
                                                 <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />

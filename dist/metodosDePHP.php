@@ -192,7 +192,10 @@ public static function  integridadSistema(){
 	 */
      
      //echo "Connected to MySQL","<br><br>"; 
+     
+     # Seleccionamos la proxima base de datos a  utilizar...
 	
+	 
 	
 	# Verificamos que las lineas de php.ini estan configuradas tal como las necesitamos....
 	
