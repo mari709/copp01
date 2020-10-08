@@ -1,4 +1,4 @@
-        <?php include("php/vistas/superior.php"); ?>
+        <?php include("vistas/superior.php"); ?>
 
 
         <div id="layoutAuthentication">
@@ -30,32 +30,32 @@
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" />
+                                                        <label class="small mb-1" for="inputFirstName">Nombre</label>
+                                                        <input class="form-control py-4" id="inputFirstName" type="text" placeholder="Ingresa el nombre" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                        <input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" />
+                                                        <label class="small mb-1" for="inputLastName">Apellido</label>
+                                                        <input class="form-control py-4" id="inputLastName" type="text" placeholder="Ingresa el apellido" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                                <input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Ingresa el e-mail" />
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                        <label class="small mb-1" for="inputPassword">Contraseña</label>
+                                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Ingresa la contraseña" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" />
+                                                        <label class="small mb-1" for="inputConfirmPassword">Repetir contraseña</label>
+                                                        <input class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Repetir contraseña" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -74,4 +74,4 @@
            <!--  <div id="layoutAuthentication_footer"></div> -->
         
 
-        <?php include("php/vistas/inferior.php"); ?>
+        <?php include("vistas/inferior.php"); ?>
