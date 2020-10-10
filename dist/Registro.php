@@ -1,6 +1,5 @@
-        <?php include("vistas/superior.php"); ?>
-
-
+<?php $title = "Registrar Usuarios";
+    include("vistas/superior.php"); ?>
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -59,7 +58,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="login.html">Agregar usuario</a></div>
+                                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block" href="#">Agregar usuario</a></div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">

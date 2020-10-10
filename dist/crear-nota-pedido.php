@@ -14,9 +14,8 @@ Seguridad::testSeguridad();
 //}
 
 ?>
-<!--------------------------------------------------------------->
-
-        <?php include("vistas/superior.php"); ?>
+<?php $title = "Crear nota pedido";
+    include("vistas/superior.php"); ?>
             
         <!--INICIO CONTENIDO PRINCIPAL-->
             <main>

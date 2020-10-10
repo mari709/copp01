@@ -14,10 +14,9 @@ Seguridad::testSeguridad();
 //}
 
 ?>
-<!--------------------------------------------------------------->
+<?php $title = "Administrar usuarios";
+    include("vistas/superior.php"); ?>
 
-        <?php include("vistas/superior.php"); ?>
-            
         <!--INICIO CONTENIDO PRINCIPAL-->
             <main>
                 <div class="container-fluid">
