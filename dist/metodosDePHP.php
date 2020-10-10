@@ -1,16 +1,5 @@
 <?php
-
-#Borradores
-
-//echo "se ejecuto";
-//echo filter_input(INPUT_POST,'inputEmailAddress');
-
-//$email = filter_input(INPUT_POST,'inputEmailAddress');
-//echo $email;
-
-//session_start();
-
-
+error_reporting(E_ALL ^ E_NOTICE); // Notificar todos los errores excepto E_NOTICE
 
 /*---Este codigo se ejecuta cuando cualquier input invoca este archivo mediante el method:"POST" ---*/
 if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
