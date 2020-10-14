@@ -98,7 +98,7 @@ Seguridad::testSeguridad();
             "columns":[
                 {"data": "idnp"},
                 {"data": "fecha"},
-                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>zoom_in</i></button></div></div>"}
+                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>zoom_in</i></button></div></div>","orderable": false}
             ]  
           });
       });
