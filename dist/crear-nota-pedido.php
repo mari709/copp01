@@ -1,4 +1,3 @@
-<!---- Verificamos que el usuario esta logeado al sistema  ---->
 <?php
 session_name("loginUsuario"); 
 session_start();
@@ -27,4 +26,7 @@ Seguridad::testSeguridad();
                     </ol>
             </main>
 
-        <?php include_once("vistas/inferior.php"); ?>
+    <?php include_once("vistas/footer.php"); ?>
+    <?php include_once("vistas/scripts.php"); ?>
+    </body>
+</html>

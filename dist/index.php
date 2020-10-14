@@ -61,30 +61,22 @@ Seguridad::testSeguridad();
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="tablaPedidosPendientes" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Fecha</th>
-                                    <th>Viajante</th>
-                                    <th>Estado</th>
+                                    <th>idnp</th>
+                                    <th>fecha</th>
                                     <th>Detalles</th>
                                 </tr>
                             </thead>
                             <tfoot>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Viajante</th>
-                                    <th>Estado</th>
+                                 <tr>
+                                    <th>idnp</th>
+                                    <th>fecha</th>
                                     <th>Detalles</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td>14/10/2020</td/>
-                                    <td>Juan Perez</td>
-                                    <th><button class='btn btn-light btn-sm btndetalles'>pendiente</button></th>
-                                    <td><div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btndetalles'><i class='material-icons'>zoom_in</i></button></div></div></td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -93,4 +85,24 @@ Seguridad::testSeguridad();
         </div>
     </main>
 
-<?php include_once("vistas/inferior.php"); ?>
+<?php include_once("vistas/footer.php"); ?>
+<?php include_once("vistas/scripts.php"); ?>
+
+<script>
+      $(document).ready(function() {
+          $('#tablaPedidosPendientes').DataTable( {
+            "ajax":{
+                "url": "../baseDeDatos/consulta.php",
+                "dataSrc":""
+            },           
+            "columns":[
+                {"data": "idnp"},
+                {"data": "fecha"},
+                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>zoom_in</i></button></div></div>"}
+            ]  
+          });
+      });
+    </script>
+    
+    </body>
+</html>

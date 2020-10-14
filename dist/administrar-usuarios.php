@@ -1,4 +1,3 @@
-<!---- Verificamos que el usuario esta logeado al sistema  ---->
 <?php
 session_name("loginUsuario"); 
 session_start();
@@ -6,14 +5,8 @@ session_start();
 include_once("metodosDePHP.php");
 Seguridad::integridadSistema();
 Seguridad::testSeguridad();
-
-
-# Esta prueba funciona ....
-//if($_SESSION["autentificado"] != "Si"){
-	//header ("Location: https://drama.fandom.com/es/wiki/Death_note:_L_Change_the_world");
-//}
-
 ?>
+
 <?php $title = "Administrar usuarios";
     include("vistas/superior.php"); ?>
 
@@ -27,4 +20,7 @@ Seguridad::testSeguridad();
                     </ol>
             </main>
 
-        <?php include_once("vistas/inferior.php"); ?>
+    <?php include_once("vistas/footer.php"); ?>
+    <?php include_once("vistas/scripts.php"); ?>
+    </body>
+</html>

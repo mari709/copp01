@@ -73,4 +73,7 @@
            <!--  <div id="layoutAuthentication_footer"></div> -->
         
 
-        <?php include("vistas/inferior.php"); ?>
+           <?php include_once("vistas/footer.php"); ?>
+        <?php include_once("vistas/scripts.php"); ?>
+        </body>
+    </html>
