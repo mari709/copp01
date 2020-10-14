@@ -91,8 +91,9 @@ Seguridad::testSeguridad();
 <script>
       $(document).ready(function() {
           $('#tablaPedidosPendientes').DataTable( {
+            "dom": 'ftipr',
             "ajax":{
-                "url": "../baseDeDatos/consulta.php",
+                "url": "../baseDeDatos/consultaNotaPedido.php",
                 "dataSrc":""
             },           
             "columns":[
