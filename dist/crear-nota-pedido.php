@@ -14,7 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="tablacomercios" width="100%" cellspacing="0">
+                                <table data-page-length='5' class="table table-bordered" id="tablacomercios" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -22,8 +22,9 @@
                                             <th>Localidad</th>
                                             <th>Provincia</th>
                                             <th>Dirección</th>
-                                            <th>CUIT</th>
                                             <th>Código Postal</th>
+                                            <th>CUIT</th>
+
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -33,14 +34,15 @@
                                             <th>Localidad</th>
                                             <th>Provincia</th>
                                             <th>Dirección</th>
-                                            <th>CUIT</th>
                                             <th>Código Postal</th>
+                                            <th>CUIT</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="text-center"><button class="btn btn-primary pl-4 pr-4" id="apaso2">Siguiente</button></div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +53,7 @@
         <script>
             $(document).ready(function() {
                 $('#tablacomercios').DataTable( {
-                    "lengthChange": false,
+                    "dom": 'ftipr',
                     "bFilter": true,
                     "bInfo": false,
                     "bAutoWidth": false,
