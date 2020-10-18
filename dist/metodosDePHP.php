@@ -1,7 +1,6 @@
 <?php
 
-#Borradores
-
+/*---- Borradores ---------------------------------------*/
 //echo "se ejecuto";
 //echo filter_input(INPUT_POST,'inputEmailAddress');
 
@@ -9,19 +8,38 @@
 //echo $email;
 
 //session_start();
+/*------------------------------------------------------*/
+
+# Constantes tipo "define"
+define("BCRYPT_CONS", "14");
+
+
+# Usuario administrador decide crear un nuevo usuario ...
+
+/*----Este codigo se ejecuta cuando "admin" presiona "Ingresar" en la pagina "Registro.php*/
+if(isset($_POST['nombreViajante']) && isset($_POST['direccionEmail']) && isset($_POST['Password'])  && isset($_POST['confirmacionPassword']) ){
+	//header ("Location: https://drama.fandom.com/es/wiki/Death_note:_L_Change_the_world");
+	global $nombreViajante;
+	global $direccionEmail;
+	global $Password;
+	global $confirmacionPassword;
+	
+}
+/*----------------------------------------------------------------------------------------*/
 
 
 
-/*---Este codigo se ejecuta cuando cualquier input invoca este archivo mediante el method:"POST" ---*/
+# Usuario escribe sus dados en la pagina de login y presiona "ingresar" ....
+
+/*---Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"------------------------------*/
 if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 	testVerificacionLogin();
-	
-} 
+	} 
 
 //else{
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
 //}
-/*--------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 /*---- Funcion "Test" para verificar si ingreso se realizo de manera correcta o no (Temporal) -----*/
@@ -69,12 +87,14 @@ function testVerificacionLogin(){
 /*--------------------------------------------------------------------------------------*/
 
 
+
 /*---- Test de verificación Login (Definitivo)  ----------------------------------------*/
 function testVerificacionLoginFinal(){
 	
 	
 }
 /*--------------------------------------------------------------------------------------*/
+
 
 
 /*----Inicio: Clase seguridad----*/
@@ -101,11 +121,9 @@ public static function testSeguridad(){
 	else{ 
 	self::tiempoPermanencia();  // Aca deberia verificar con un si existe una cookie que solicita "Recordar usaurio" y si esta habilitada
 								// ... de ser asi, nunca deberia ejecutarse "tiempoPermanencia()"
-
 		}
 }
 /*--------------------------------------------------------------------------------------------------------------------------*/
-
 
 
 
@@ -159,7 +177,6 @@ public static function tiempoPermanencia(){
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
-
 /*---- Funcion: "integridadSistema", destinada a verificar que los elementos del sistema se encuentrer correctamente antes de usarse -----*/
 
 public static function  integridadSistema(){
@@ -169,6 +186,7 @@ public static function  integridadSistema(){
 	$usernameBD = "root";
 	$passwordBD = "";
 	$hostBD = "127.0.0.1";
+	$baseDeDatos = "coppens";
 	
 	global $dbConnect;   
 	
@@ -195,9 +213,16 @@ public static function  integridadSistema(){
      
      # Seleccionamos la proxima base de datos a  utilizar...
 	
+	 mysqli_select_db($dbConnect,$baseDeDatos) or die("Could not select dbName.");
 	 
-	
-	# Verificamos que las lineas de php.ini estan configuradas tal como las necesitamos....
+	 # Verificamos si en la misma se encuentra creada la tabla "datosUsuario", si no existe la creamos...
+	 
+	 $sql = "CREATE TABLE IF NOT EXISTS `coppens`.`datosUsuario` ( `idLogin` INT(50) NOT NULL AUTO_INCREMENT , `idViajante` INT(50) NOT NULL , `password` VARCHAR(100) NOT NULL , `statusUser` BOOLEAN NOT NULL DEFAULT FALSE , `email` VARCHAR(70) NOT NULL , `claveCookie` INT(10) NULL DEFAULT NULL , PRIMARY KEY (`idLogin`)) ENGINE = InnoDB;
+";
+	 
+	 mysqli_query($dbConnect, $sql);
+	 
+	 # Verificamos que las lineas de php.ini estan configuradas tal como las necesitamos....
 	
 	//$trans_sid = ini_get(session.use_trans_sid);
 	
@@ -230,6 +255,12 @@ public static function  integridadSistema(){
 	
 }
 /*-----------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*---- Inicio : Funcion Creacion de usuario ----*/
+
+
+/*----------------------------------------------*/
 
 
 
