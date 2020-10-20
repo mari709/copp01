@@ -399,6 +399,8 @@ function crearUsuario(){
 	global $tipoViajante;
 	global $estadoViajante;
 	
+	
+	
 	$baseDeDatos = "coppens";
 	
 	# Verificamos estar conectados con la Base de Datos ...
@@ -418,8 +420,20 @@ function crearUsuario(){
 	$sql = "INSERT INTO `viajantes` (`idviajante`, `codigo`, `viajante`, `usuario`, `estado_viajante`, `comision`) VALUES (NULL, '', '".$nombreViajante."', '', '".$estadoViajante."', '0')";
 	
 	 mysqli_query($dbConnect, $sql);
-
-	include_once("Registro.php");
+	 
+	 # Obtenemos el `idviajante` del ultimo usuario registrado
+	 $sql = "SELECT `idviajante` FROM `viajantes` WHERE `viajante` = \"".$nombreViajante."\";";
+	 $resultado = mysqli_query($dbConnect, $sql);
+	 $idDeViajante = mysqli_fetch_assoc($resultado);
+	 mysqli_free_result($resultado);	
+	 
+	 # Insertamos en la tabla `datosusuario` los datos correspondientes al `idviajante` anteriormente buscado...
+	 
+	 $sql = "INSERT INTO `datosusuario` (`idLogin`, `idViajante`, `password`, `statusUser`, `email`, `claveCookie`) VALUES (NULL, '".$idDeViajante["idviajante"]."', '".$derivedPassword."', '".$tipoViajante."', '".$direccionEmail."', NULL)";
+	 mysqli_query($dbConnect, $sql);
+	 
+	 #
+	 include_once("Registro.php");
 }
 /*----------------------------------------------*/
 
