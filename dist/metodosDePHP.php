@@ -138,7 +138,7 @@ function testVerificacionLogin(){
 	else{
 		//El usuario y/o la contrase�a no fueron correctamente ingresados....
 		 header("Location: ./login.php?errorusuario=si"); //Observar que se agrega "errorusuario=si" al link, al ser redireccionado, este dato sera 
-		 											     	         //utilizado.
+		 											     //utilizado.
 		
 	}
 
@@ -170,7 +170,7 @@ public static function testSeguridad(){
 	//header("Location: http://en.gameslol.net/yu-gi-oh-gx-duel-academy-1025.html");
 	
 	if ($_SESSION["autentificado"] != "Si") {
-    //si no existe, envio a la p�gina de autentificacion
+    //si no existe, envio a la pagina de autentificacion
     header("Location: ./login.php"); //   /copp01/dist/login.php
     //ademas salgo de este script
     
@@ -399,6 +399,7 @@ function crearUsuario(){
 	global $tipoViajante;
 	global $estadoViajante;
 	
+	$usuarioCreado="no";
 	
 	
 	$baseDeDatos = "coppens";
@@ -430,10 +431,20 @@ function crearUsuario(){
 	 # Insertamos en la tabla `datosusuario` los datos correspondientes al `idviajante` anteriormente buscado...
 	 
 	 $sql = "INSERT INTO `datosusuario` (`idLogin`, `idViajante`, `password`, `statusUser`, `email`, `claveCookie`) VALUES (NULL, '".$idDeViajante["idviajante"]."', '".$derivedPassword."', '".$tipoViajante."', '".$direccionEmail."', NULL)";
+	 
 	 mysqli_query($dbConnect, $sql);
+	 	
+	 	
+	
+	 
+	 # Liberamos la informacion de las variables "$_POST" para que puedan ser utilizadas nuevamente....
+	 unset($_POST['nombreViajante'], $_POST['direccionEmail'],$_POST['Password'],$_POST['confirmacionPassword'],$_POST['grupotipoviajante'],$_POST['grupoestadoviajante'] );
+	 
 	 
 	 #
-	 include_once("Registro.php");
+	 
+	 $usuarioCreado = "si";
+	 include("Registro.php");
 }
 /*----------------------------------------------*/
 

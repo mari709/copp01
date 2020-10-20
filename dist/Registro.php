@@ -46,7 +46,8 @@ Seguridad::integridadSistema();
                                     
 
 <!---- Titulo : "Crear Usuario" --------------------------------------------------------------->
-<div class="card-header"><h3 class="text-center font-weight-light my-4">Crear usuario</h3></div>
+<div class="card-header"><h3 class="text-center font-weight-light my-4">Crear usuario
+<?php if($usuarioCreado=="si") { ?> <FONT COLOR="#56e817">: Usuario creado correctamente</FONT> <?php }  ?> </h3></div>
 <!--------------------------------------------------------------------------------------------->
 
 <div class="card-body">
