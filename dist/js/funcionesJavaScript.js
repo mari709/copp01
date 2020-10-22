@@ -10,7 +10,7 @@ form.addEventListener('submit',function(evt){
 if(inputConfirmPassword.value != inputPassword.value){
 	
 	evt.preventDefault();
-	ErrorContrasena.innerHTML = "<span style='color: red;'>Las passwords no coinciden... </span>";
+	ErrorContrasena.innerHTML = "<span style='color: red;'>Las contraseñas no coinciden... </span>";
 
 }
 
