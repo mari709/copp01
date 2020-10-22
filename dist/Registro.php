@@ -103,7 +103,7 @@ Seguridad::testSeguridad();
 <div  class="form-group">
 <label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>Contraseña</div></label>
 <!---- <div id='ErrorContrasena' style="color : red"></div>  ---->
-<input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese constraseña" required />
+<input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese contraseña" required />
 </div>
 </div>
 
@@ -111,8 +111,8 @@ Seguridad::testSeguridad();
 <!---- Inicio : Confirmar Contraseña ---->
 <div class="col-md-6">
 <div class="form-group">
-<label class="small mb-1" for="inputConfirmPassword">Confirmar constraseña</label>
-<input class="form-control py-4" id="inputConfirmPassword" name="confirmacionPassword" type="password" placeholder="Confirmar constraseña" required />
+<label class="small mb-1" for="inputConfirmPassword">Confirmar contraseña</label>
+<input class="form-control py-4" id="inputConfirmPassword" name="confirmacionPassword" type="password" placeholder="Confirmar contraseña" required />
 </div>
 </div>
 
