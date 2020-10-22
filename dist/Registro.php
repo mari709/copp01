@@ -4,7 +4,7 @@ session_start();
 
 include_once("metodosDePHP.php");
 Seguridad::integridadSistema();
-//Seguridad::testSeguridad();
+Seguridad::testSeguridad();
 
 
 # Esta prueba funciona ....
@@ -26,7 +26,7 @@ Seguridad::integridadSistema();
 
 <!---- Titulo : "Crear Usuario" --------------------------------------------------------------->
 <div class="card-header"><h3 class="text-center font-weight-light my-4">Crear usuario</h3>
-<?php if($usuarioCreado=="si") { ?> <span style="color:#56e817">: Usuario creado correctamente</span> <?php }  ?> </div>
+<?php if($usuarioCreado=="si") { ?> <span style="color:#56e817"> Usuario creado correctamente</span> <?php }  ?> </div>
 <!--------------------------------------------------------------------------------------------->
 
 <div class="card-body">
@@ -70,7 +70,7 @@ Seguridad::integridadSistema();
 
 
 <!---- Inicio : Campo texto "Nombre" ---->
-<div class="col-md-6">
+<div class="col-md-12">
 <div class="form-group">
 <label class="small mb-1" for="inputFirstName">Nombre de Usuario</label>
 <input class="form-control py-4" id="inputFirstName" name="nombreViajante" type="text" placeholder="Ingrese su nombre" required/>
@@ -78,15 +78,6 @@ Seguridad::integridadSistema();
 </div>
 <!---- Fin : Campo texto "Nombre" ---->
                                                 
-
-<!---- Inicio : Campo texto "Apellido" ---->                                                
-<div class="col-md-6">
-<div class="form-group">
-<!----<label class="small mb-1" for="inputLastName">Apellido</label>
-<input class="form-control py-4" id="inputLastName" type="text" placeholder="Ingrese su apellido" required/>---->
-</div>
-</div> 
-<!---- Fin : Campo texto "Apellido" ---->
 
 
 </div>
@@ -110,9 +101,9 @@ Seguridad::integridadSistema();
 <!---- Inicio : Password ---->
 <div class="col-md-6">
 <div  class="form-group">
-<label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>Password</div></label>
+<label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>Contraseña</div></label>
 <!---- <div id='ErrorContrasena' style="color : red"></div>  ---->
-<input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese password" required />
+<input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese constraseña" required />
 </div>
 </div>
 
@@ -120,8 +111,8 @@ Seguridad::integridadSistema();
 <!---- Inicio : Confirmar Contraseña ---->
 <div class="col-md-6">
 <div class="form-group">
-<label class="small mb-1" for="inputConfirmPassword">Confirmar Password</label>
-<input class="form-control py-4" id="inputConfirmPassword" name="confirmacionPassword" type="password" placeholder="Confirmar password" required />
+<label class="small mb-1" for="inputConfirmPassword">Confirmar constraseña</label>
+<input class="form-control py-4" id="inputConfirmPassword" name="confirmacionPassword" type="password" placeholder="Confirmar constraseña" required />
 </div>
 </div>
 
@@ -150,6 +141,10 @@ Seguridad::integridadSistema();
                         </div>
                     </div>
                 </main>
+            </div> <!-- fin layoutAuthentication -->
+        </div> <!-- fin layoutAuthentication_content -->
+
+
             <!-- </div> -->
            <!--  <div id="layoutAuthentication_footer"></div> -->
         
