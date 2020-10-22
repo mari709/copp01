@@ -91,14 +91,15 @@ Seguridad::testSeguridad();
 <script>
       $(document).ready(function() {
           $('#tablaPedidosPendientes').DataTable( {
+            "dom": 'ftipr',
             "ajax":{
-                "url": "../baseDeDatos/consulta.php",
+                "url": "../baseDeDatos/consultaNotaPedido.php",
                 "dataSrc":""
             },           
             "columns":[
                 {"data": "idnp"},
                 {"data": "fecha"},
-                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>zoom_in</i></button></div></div>"}
+                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>zoom_in</i></button></div></div>","orderable": false}
             ]  
           });
       });
