@@ -55,9 +55,14 @@
 
 <!---- "Div" , aqui se encuentran botones de "Olvide mi contraseña" e "Ingresar" ---------->
 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+
+<!---- Opcion "Olvide mi contraseña" ---->
 <a class="small" href="password.html">Olvidé mi contraseña</a>
+
+<!---- "Ingresar" ---->
 <!-- <a class="btn btn-primary" href="index.html">Ingresar</a> --><!--Codigo original!! -->
 <input class="btn btn-primary" type="Submit" value="Ingresar"></td> <!--Codigo editado!!-->
+
 </div>
 <!----------------------------------------------------------------------------------------->
 
