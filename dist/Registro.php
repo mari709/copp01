@@ -1,4 +1,3 @@
-<!---- Verificamos que el usuario esta logeado al sistema  ---->
 <?php
 session_name("loginUsuario"); 
 session_start();
@@ -14,28 +13,8 @@ Seguridad::integridadSistema();
 //}
 
 ?>
-<!--------------------------------------------------------------->
-
-<!DOCTYPE html>
-<html lang="es">
- 
-<!---- Inicio : "head" -------------------------------------------------------------------------------------------------->    
-<head>       
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Page Title - SB Admin</title>
-<link href="css/styles.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-</head>
-<!---- Fin : "head" -------------------------------------------------------------------------------------------------->  
-   
-    <body class="bg-primary">
-        <!-- NAVBAR -->
-        <?php include("php/includes/navbar.php"); ?>
-
+<?php $title = "Registrar Usuarios";
+    include("vistas/superior.php"); ?>
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -171,15 +150,15 @@ Seguridad::integridadSistema();
                         </div>
                     </div>
                 </main>
-            </div>
-            <div id="layoutAuthentication_footer">
-                <?php include("php/includes/footer.php"); ?>
-            </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/funcionesJavaScript.js"></script>
+            <!-- </div> -->
+           <!--  <div id="layoutAuthentication_footer"></div> -->
         
-    </body>
-</html>
+           <!-- <div id="layoutAuthentication_footer"> -->
+            <?php include_once("vistas/footer.php"); ?>
+            <!-- </div> -->
+
+        <?php include_once("vistas/scripts.php"); ?>
+        <script src="js/funcionesJavaScript.js"></script>
+
+        </body>
+    </html>

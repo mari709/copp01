@@ -1,5 +1,4 @@
 <?php
-
 /*---- Borradores ---------------------------------------*/
 //echo "se ejecuto";
 //echo filter_input(INPUT_POST,'inputEmailAddress');
@@ -90,6 +89,14 @@ if(isset($_POST['nombreViajante']) && isset($_POST['direccionEmail']) && isset($
 
 
 # Usuario escribe sus dados en la pagina de login y presiona "ingresar" ....
+
+
+/* fin de rama gabriel 21-10-20 */
+
+
+
+
+error_reporting(E_ALL ^ E_NOTICE); // Notificar todos los errores excepto E_NOTICE
 
 /*---Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"------------------------------*/
 if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
@@ -206,7 +213,7 @@ public static function tiempoPermanencia(){
 	
 	#Procedemos a comparar el tiempo transcurrido con el limite que fijemos nosotros como maximo... 
 	 
-	 if($tiempo_transcurrido >= 60){
+	 if($tiempo_transcurrido >= 600){
 	 	//es decir, suponemos que se cumple que el tiempo transcurrido es mayor a 600 segundos o lo que es lo mismo 10 minutos...
 	 	
 	 	// Procedemos a destruir la sesion actual ...
