@@ -1,16 +1,112 @@
 <?php
+/*---- Borradores ---------------------------------------*/
+//echo "se ejecuto";
+//echo filter_input(INPUT_POST,'inputEmailAddress');
+
+//$email = filter_input(INPUT_POST,'inputEmailAddress');
+//echo $email;
+
+//session_start();
+/*------------------------------------------------------*/
+
+# Constantes tipo "define"
+define("BCRYPT_COST", "14");
+
+
+
+# Usuario administrador decide crear un nuevo usuario ...
+
+/*----Este codigo se ejecuta cuando "admin" presiona "Ingresar" en la pagina "Registro.php*/
+if(isset($_POST['nombreViajante']) && isset($_POST['direccionEmail']) && isset($_POST['Password'])  && isset($_POST['confirmacionPassword']) ){
+	
+	global $nombreViajante;
+	global $direccionEmail;
+	global $Password;
+	global $confirmacionPassword;
+	
+	global $tipoViajante;
+	global $estadoViajante;
+	
+	
+	
+	
+	if(isset($_POST['grupotipoviajante'])){
+		
+		//if($_POST['grupotipoviajante']=="viajante"){
+		//header ("Location: https://drama.fandom.com/es/wiki/Death_note:_L_Change_the_world");
+		//$tipoViajante = "viajante";
+		//}
+		
+		$tipoViajante = $_POST['grupotipoviajante'];
+		
+	}
+	
+	/*----Borrador ---------------------------------------*/
+	//if(isset($_POST['grupotipoviajante'])){
+		
+		//if($_POST['grupotipoviajante']=="administrador"){
+		//header ("Location: https://genshin.mihoyo.com/en");	
+		//}
+		
+	//}
+	
+	
+	if(isset($_POST['grupoestadoviajante'])){
+		
+		if($_POST['grupoestadoviajante']=="habilitado"){
+		//header ("Location: https://drama.fandom.com/es/wiki/Death_note:_L_Change_the_world");	
+		$estadoViajante = 1 ;
+		}
+		
+		else {
+		$estadoViajante = 0 ;
+		}
+		
+	}
+	
+	
+	/*----Borrador ---------------------------------------*/
+	//if(isset($_POST['grupoestadoviajante'])){
+		
+		//if($_POST['grupotipoviajante']=="deshabilitado"){
+		//header ("Location: https://genshin.mihoyo.com/en");	
+		//}
+		
+	//}
+	
+	
+	
+	
+	$nombreViajante = $_POST['nombreViajante'];
+	$direccionEmail = $_POST['direccionEmail'];
+	$Password = $_POST['Password'];
+	$confirmacionPassword = $_POST['confirmacionPassword'];
+	
+	crearUsuario();
+}
+/*----------------------------------------------------------------------------------------*/
+
+
+
+# Usuario escribe sus dados en la pagina de login y presiona "ingresar" ....
+
+
+/* fin de rama gabriel 21-10-20 */
+
+
+
+
 error_reporting(E_ALL ^ E_NOTICE); // Notificar todos los errores excepto E_NOTICE
 
-/*---Este codigo se ejecuta cuando cualquier input invoca este archivo mediante el method:"POST" ---*/
+/*---Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"------------------------------*/
 if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 	testVerificacionLogin();
-	
-} 
+	} 
 
 //else{
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
 //}
-/*--------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
 /*---- Funcion "Test" para verificar si ingreso se realizo de manera correcta o no (Temporal) -----*/
@@ -49,7 +145,7 @@ function testVerificacionLogin(){
 	else{
 		//El usuario y/o la contrase�a no fueron correctamente ingresados....
 		 header("Location: ./login.php?errorusuario=si"); //Observar que se agrega "errorusuario=si" al link, al ser redireccionado, este dato sera 
-		 											     	         //utilizado.
+		 											     //utilizado.
 		
 	}
 
@@ -58,12 +154,14 @@ function testVerificacionLogin(){
 /*--------------------------------------------------------------------------------------*/
 
 
+
 /*---- Test de verificación Login (Definitivo)  ----------------------------------------*/
 function testVerificacionLoginFinal(){
 	
 	
 }
 /*--------------------------------------------------------------------------------------*/
+
 
 
 /*----Inicio: Clase seguridad----*/
@@ -79,7 +177,7 @@ public static function testSeguridad(){
 	//header("Location: http://en.gameslol.net/yu-gi-oh-gx-duel-academy-1025.html");
 	
 	if ($_SESSION["autentificado"] != "Si") {
-    //si no existe, envio a la p�gina de autentificacion
+    //si no existe, envio a la pagina de autentificacion
     header("Location: ./login.php"); //   /copp01/dist/login.php
     //ademas salgo de este script
     
@@ -90,11 +188,9 @@ public static function testSeguridad(){
 	else{ 
 	self::tiempoPermanencia();  // Aca deberia verificar con un si existe una cookie que solicita "Recordar usaurio" y si esta habilitada
 								// ... de ser asi, nunca deberia ejecutarse "tiempoPermanencia()"
-
 		}
 }
 /*--------------------------------------------------------------------------------------------------------------------------*/
-
 
 
 
@@ -148,18 +244,20 @@ public static function tiempoPermanencia(){
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
 
-
 /*---- Funcion: "integridadSistema", destinada a verificar que los elementos del sistema se encuentrer correctamente antes de usarse -----*/
 
 public static function  integridadSistema(){
 	
+	/*---- Inicio : Borrador ---------------------------------------------------------------------------------------------------------------*/
+	
 	# Intentamos establecer una conexion con la Base de Datos...
 	
-	$usernameBD = "root";
-	$passwordBD = "";
-	$hostBD = "127.0.0.1";
+	//$usernameBD = "root";
+	//$passwordBD = "";
+	//$hostBD = "127.0.0.1";
+	$baseDeDatos = "coppens";
 	
-	global $dbConnect;   
+	//global $dbConnect;   
 	
 	/**
 	* Almacenamos en una variable el alias de la funcion "mysqli::__construct", Que permite abrir una conexion al servidor de MySQL.
@@ -167,13 +265,13 @@ public static function  integridadSistema(){
 	* Basicamente , "$dbConnect" es una instancia del objeto "mysqli_connect" y posee todas sus propiedades (como por ejemplo sus metodos.
 	*/
     
-    $dbConnect =  mysqli_connect($hostBD, $usernameBD, $passwordBD) 
+    //$dbConnect =  mysqli_connect($hostBD, $usernameBD, $passwordBD) 
                                                                
      /**
 	 * En caso que no se pueda establecer la conexion aparece este mensaje. 
 	 */                                                      
                                                                
-     or die("Unable to connect to MySQL.");
+     //or die("Unable to connect to MySQL.");
      
      
      /**
@@ -181,9 +279,25 @@ public static function  integridadSistema(){
 	 */
      
      //echo "Connected to MySQL","<br><br>"; 
+     
+     /*---- Fin : Borrador ---------------------------------------------------------------------------------------------------------------*/
+     
+     # Verificamos estar conectados con la Base de Datos 
+     
+     $dbConnect = conexionBD::getConexion();
+     
+     # Seleccionamos la proxima base de datos a  utilizar...
 	
-	
-	# Verificamos que las lineas de php.ini estan configuradas tal como las necesitamos....
+	 mysqli_select_db($dbConnect,$baseDeDatos) or die("Could not select dbName.");
+	 
+	 # Verificamos si en la misma se encuentra creada la tabla "datosUsuario", si no existe la creamos...
+	 
+	 $sql = "CREATE TABLE IF NOT EXISTS `coppens`.`datosUsuario` ( `idLogin` INT(50) NOT NULL AUTO_INCREMENT , `idViajante` INT(50) NOT NULL , `password` VARCHAR(100) NOT NULL , `statusUser` BOOLEAN NOT NULL DEFAULT FALSE , `email` VARCHAR(70) NOT NULL , `claveCookie` INT(10) NULL DEFAULT NULL , PRIMARY KEY (`idLogin`)) ENGINE = InnoDB;
+";
+	 
+	 mysqli_query($dbConnect, $sql);
+	 
+	 # Verificamos que las lineas de php.ini estan configuradas tal como las necesitamos....
 	
 	//$trans_sid = ini_get(session.use_trans_sid);
 	
@@ -219,9 +333,126 @@ public static function  integridadSistema(){
 
 
 
+
+
+
 }
 /*---- Fin: Clase Seguridad ----*/
 
 
+
+/*---- Inicio : Clase "conexionBD"  ----*/
+class conexionBD{
+	
+	private static $instance; // 
+	
+	# Metodo para crear la conexion....
+	private static function conectar(){
+		
+	$usernameBD = "root";
+	$passwordBD = "";
+	$hostBD = "127.0.0.1";
+	$baseDeDatos = "coppens";
+	
+	$dbConnect = mysqli_connect($hostBD, $usernameBD, $passwordBD) 
+	
+	 /**
+	 * En caso que no se pueda establecer la conexion aparece este mensaje. 
+	 */                                                      
+                                                               
+     or die("Unable to connect to MySQL.");
+     
+     
+	return $dbConnect;	
+	}
+	
+	
+	# Metodo que verifica si la conexion ya fue creada ....
+	public static function getConexion(){
+		
+		if (!self::$instance){
+			
+			self::$instance = self::conectar();
+			
+		}
+		
+		return self::$instance;
+		
+	}
+	
+	
+	# Esto habria que ver si funciona, seria para verificar que efectivamente no se cree una conexi+on nueva....
+	
+public function __clone() {
+    throw new Exception("No se puede clonar esta clase");
+}
+
+
+
+}
+/*---- Fin :  Clase "Conexion con la BD" --------*/
+
+
+
+
+/*---- Inicio : Funcion Creacion de usuario ----*/
+function crearUsuario(){
+	
+	global $nombreViajante;
+	global $direccionEmail;
+	global $Password;
+	global $confirmacionPassword;
+	
+	global $tipoViajante;
+	global $estadoViajante;
+	
+	$usuarioCreado="no";
+	
+	
+	$baseDeDatos = "coppens";
+	
+	# Verificamos estar conectados con la Base de Datos ...
+	
+	$dbConnect = conexionBD::getConexion();
+	mysqli_select_db($dbConnect,$baseDeDatos) or die("Could not select dbName.");
+	
+	//if(!$dbConnect){
+		//header ("Location: https://drama.fandom.com/es/wiki/Death_note:_L_Change_the_world");
+	//}
+	
+	
+	$options = array ('cost' => BCRYPT_COST);
+	$derivedPassword = password_hash($Password,PASSWORD_BCRYPT,$options);
+	
+	# Insertamos el usuario en la tabla `viajantes`
+	$sql = "INSERT INTO `viajantes` (`idviajante`, `codigo`, `viajante`, `usuario`, `estado_viajante`, `comision`) VALUES (NULL, '', '".$nombreViajante."', '', '".$estadoViajante."', '0')";
+	
+	 mysqli_query($dbConnect, $sql);
+	 
+	 # Obtenemos el `idviajante` del ultimo usuario registrado
+	 $sql = "SELECT `idviajante` FROM `viajantes` WHERE `viajante` = \"".$nombreViajante."\";";
+	 $resultado = mysqli_query($dbConnect, $sql);
+	 $idDeViajante = mysqli_fetch_assoc($resultado);
+	 mysqli_free_result($resultado);	
+	 
+	 # Insertamos en la tabla `datosusuario` los datos correspondientes al `idviajante` anteriormente buscado...
+	 
+	 $sql = "INSERT INTO `datosusuario` (`idLogin`, `idViajante`, `password`, `statusUser`, `email`, `claveCookie`) VALUES (NULL, '".$idDeViajante["idviajante"]."', '".$derivedPassword."', '".$tipoViajante."', '".$direccionEmail."', NULL)";
+	 
+	 mysqli_query($dbConnect, $sql);
+	 	
+	 	
+	
+	 
+	 # Liberamos la informacion de las variables "$_POST" para que puedan ser utilizadas nuevamente....
+	 unset($_POST['nombreViajante'], $_POST['direccionEmail'],$_POST['Password'],$_POST['confirmacionPassword'],$_POST['grupotipoviajante'],$_POST['grupoestadoviajante'] );
+	 
+	 
+	 #
+	 
+	 $usuarioCreado = "si";
+	 include("Registro.php");
+}
+/*----------------------------------------------*/
 
 ?>
