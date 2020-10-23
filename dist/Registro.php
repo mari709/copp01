@@ -30,6 +30,8 @@ Seguridad::integridadSistema();
 <?php if($emailRepetido == "si" || $viajanteRepetido == "si" || $passwordRepetida == "si" ) { ?>
 <span style="color:#f82007">Error al crear usuario</span><?php } ?>
 </div>
+<?php if($usuarioCreado=="si") { ?> <span style="color:#56e817"> Usuario creado correctamente</span> <?php }  ?> </div>
+
 <!--------------------------------------------------------------------------------------------->
 
 <div class="card-body">
@@ -73,7 +75,7 @@ Seguridad::integridadSistema();
 
 
 <!---- Inicio : Campo texto "Nombre" ---->
-<div class="col-md-6">
+<div class="col-md-12">
 <div class="form-group">
 <label class="small mb-1" for="inputFirstName">
 <?php if($viajanteRepetido!="si"){ ?> Nombre de Usuario <?php } else{?><span style="color:#f82007"> Nombre Repetido </span><?php } ?> </label>
@@ -82,15 +84,6 @@ Seguridad::integridadSistema();
 </div>
 <!---- Fin : Campo texto "Nombre" ---->
                                                 
-
-<!---- Inicio : Campo texto "Apellido" ---->                                                
-<div class="col-md-6">
-<div class="form-group">
-<!----<label class="small mb-1" for="inputLastName">Apellido</label>
-<input class="form-control py-4" id="inputLastName" type="text" placeholder="Ingrese su apellido" required/>---->
-</div>
-</div> 
-<!---- Fin : Campo texto "Apellido" ---->
 
 
 </div>
@@ -115,10 +108,14 @@ Seguridad::integridadSistema();
 <!---- Inicio : Password ---->
 <div class="col-md-6">
 <div  class="form-group">
+
 <label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>
 <?php if($passwordRepetida!="si"){ ?>Password <?php } else{?><span style="color:#f82007"> Password ya utilizada </span><?php } ?></div></label>
+
+<label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>Contraseña</div></label>
+
 <!---- <div id='ErrorContrasena' style="color : red"></div>  ---->
-<input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese password" required />
+<input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese contraseña" required />
 </div>
 </div>
 
@@ -126,8 +123,8 @@ Seguridad::integridadSistema();
 <!---- Inicio : Confirmar Contraseña ---->
 <div class="col-md-6">
 <div class="form-group">
-<label class="small mb-1" for="inputConfirmPassword">Confirmar Password</label>
-<input class="form-control py-4" id="inputConfirmPassword" name="confirmacionPassword" type="password" placeholder="Confirmar password" required />
+<label class="small mb-1" for="inputConfirmPassword">Confirmar contraseña</label>
+<input class="form-control py-4" id="inputConfirmPassword" name="confirmacionPassword" type="password" placeholder="Confirmar contraseña" required />
 </div>
 </div>
 
@@ -156,6 +153,10 @@ Seguridad::integridadSistema();
                         </div>
                     </div>
                 </main>
+            </div> <!-- fin layoutAuthentication -->
+        </div> <!-- fin layoutAuthentication_content -->
+
+
             <!-- </div> -->
            <!--  <div id="layoutAuthentication_footer"></div> -->
         

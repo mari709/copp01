@@ -61,6 +61,7 @@ Seguridad::testSeguridad();
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
+                        <label>Fecha:   <input class="form-control form-control-sm ml-2" style="width: fit-content; display: inherit ;" type="date" id="datePedidosPendientes" aria-controls="tablaPedidosPendientes"/></label>
                         <table class="table table-bordered" id="tablaPedidosPendientes" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -91,14 +92,15 @@ Seguridad::testSeguridad();
 <script>
       $(document).ready(function() {
           $('#tablaPedidosPendientes').DataTable( {
+            "dom": 'ftipr',
             "ajax":{
-                "url": "../baseDeDatos/consulta.php",
+                "url": "../baseDeDatos/consultaNotaPedido.php",
                 "dataSrc":""
             },           
             "columns":[
                 {"data": "idnp"},
                 {"data": "fecha"},
-                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>zoom_in</i></button></div></div>"}
+                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='material-icons'>zoom_in</i></button></div></div>","orderable": false}
             ]  
           });
       });
