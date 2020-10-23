@@ -3,11 +3,12 @@
             
         <!-- INICIO CONTENIDO PRINCIPAL -->
             <main>
-                <div class="container-fluid">                
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Crear nota pedido</li>
-                    </ol>
-                    
+                <div class="container-fluid">
+                    <div class="mt-4">                
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Crear nota pedido</li>
+                        </ol>
+                    </div>                  
                     <div class="card mb-4">
                         <div class="card-header">
                             <h5>1. Seleccionar comercio</h5>
@@ -42,7 +43,9 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-center"><button class="btn btn-primary pl-4 pr-4" id="apaso2">Siguiente</button></div>
+                            <form class="text-center" method="get" action="./crear-nota-pedido-2.php">
+                                <button id="apaso2" class="btn btn-primary pl-4 pr-4" type="submit">Confirmar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
