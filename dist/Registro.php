@@ -26,7 +26,10 @@ Seguridad::integridadSistema();
 
 <!---- Titulo : "Crear Usuario" --------------------------------------------------------------->
 <div class="card-header"><h3 class="text-center font-weight-light my-4">Crear usuario</h3>
-<?php if($usuarioCreado=="si") { ?> <span style="color:#56e817">: Usuario creado correctamente</span> <?php }  ?> </div>
+<?php if($usuarioCreado=="si") { ?> <span style="color:#56e817">Usuario creado correctamente</span> <?php }  ?> 
+<?php if($emailRepetido == "si" || $viajanteRepetido == "si" || $passwordRepetida == "si" ) { ?>
+<span style="color:#f82007">Error al crear usuario</span><?php } ?>
+</div>
 <!--------------------------------------------------------------------------------------------->
 
 <div class="card-body">
@@ -72,7 +75,8 @@ Seguridad::integridadSistema();
 <!---- Inicio : Campo texto "Nombre" ---->
 <div class="col-md-6">
 <div class="form-group">
-<label class="small mb-1" for="inputFirstName">Nombre de Usuario</label>
+<label class="small mb-1" for="inputFirstName">
+<?php if($viajanteRepetido!="si"){ ?> Nombre de Usuario <?php } else{?><span style="color:#f82007"> Nombre Repetido </span><?php } ?> </label>
 <input class="form-control py-4" id="inputFirstName" name="nombreViajante" type="text" placeholder="Ingrese su nombre" required/>
 </div>
 </div>
@@ -97,7 +101,8 @@ Seguridad::integridadSistema();
 
 <!---- Inicio : Campo "Email" ---->
 <div class="form-group">
-<label class="small mb-1" for="inputEmailAddress">Email</label>
+<label class="small mb-1" for="inputEmailAddress">
+<?php if($emailRepetido!="si"){ ?>Email<?php } else{?><span style="color:#f82007"> Email ya utilizado </span><?php } ?></label>
 <input class="form-control py-4" id="inputEmailAddress" name="direccionEmail" type="email" aria-describedby="emailHelp" placeholder="Ingrese su direccion de email" required />
 </div>
 
@@ -110,7 +115,8 @@ Seguridad::integridadSistema();
 <!---- Inicio : Password ---->
 <div class="col-md-6">
 <div  class="form-group">
-<label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>Password</div></label>
+<label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>
+<?php if($passwordRepetida!="si"){ ?>Password <?php } else{?><span style="color:#f82007"> Password ya utilizada </span><?php } ?></div></label>
 <!---- <div id='ErrorContrasena' style="color : red"></div>  ---->
 <input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese password" required />
 </div>
