@@ -30,7 +30,6 @@ Seguridad::integridadSistema();
 <?php if($emailRepetido == "si" || $viajanteRepetido == "si" || $passwordRepetida == "si" ) { ?>
 <span style="color:#f82007">Error al crear usuario</span><?php } ?>
 </div>
-<?php if($usuarioCreado=="si") { ?> <span style="color:#56e817"> Usuario creado correctamente</span> <?php }  ?> </div>
 
 <!--------------------------------------------------------------------------------------------->
 
