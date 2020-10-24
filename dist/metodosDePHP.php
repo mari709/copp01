@@ -12,6 +12,9 @@
 # Constantes tipo "define"
 define("BCRYPT_COST", "14");
 
+# Variables de tipo "global"
+global $usuarioCreado;
+$usuarioCreado= "no";
 
 
 # Usuario administrador decide crear un nuevo usuario ...
@@ -82,7 +85,8 @@ if(isset($_POST['nombreViajante']) && isset($_POST['direccionEmail']) && isset($
 	$Password = $_POST['Password'];
 	$confirmacionPassword = $_POST['confirmacionPassword'];
 	
-	crearUsuario();
+	imperidirRepetidos();
+	//crearUsuario();
 }
 /*----------------------------------------------------------------------------------------*/
 
@@ -98,6 +102,8 @@ if(isset($_POST['nombreViajante']) && isset($_POST['direccionEmail']) && isset($
 
 error_reporting(E_ALL ^ E_NOTICE); // Notificar todos los errores excepto E_NOTICE
 
+
+
 /*---Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"------------------------------*/
 if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 	testVerificacionLogin();
@@ -107,6 +113,8 @@ if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
 //}
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
 
 
 /*---- Funcion "Test" para verificar si ingreso se realizo de manera correcta o no (Temporal) -----*/
@@ -395,6 +403,118 @@ public function __clone() {
 
 
 
+/*---- Inicio: metodo "impedirRepetidos" */
+
+/**
+* La finalidad de este metodo es impedir que el usuario se haga el vivo el muy plaga ,e ingrese usuarios cuyo ...
+* "nombre de viajante" ya se encuentre utilizado por algun otro usuario
+* "e-mail" ya se encuentre utilizado por algun otro usuario
+* "contraseña" ya se encuentre utilizado por algun otro usuario
+* Basicamente impedir nombres de viajantes, e-mail y/o contraseñas repetidas carajo!!
+*/
+
+function imperidirRepetidos(){
+	
+	# Declaramos las variables globales que vamos a utilizar.
+	
+	global $nombreViajante;
+	global $direccionEmail;
+	global $Password;
+	
+	
+	
+	global $usuarioCreado;
+	
+	# Declaramos las variables propias de esta funcion a utilizar.
+	
+	$passwordRepetida = "no";
+	$emailRepetido = "no";
+	$viajanteRepetido = "no";
+	$baseDeDatos = "coppens";
+	$cantidadFilas = "0";
+	
+	# Encriptamos la variable "Password" para luego buscar si alguna de la B.D. coincide con esta...
+	
+	//$options = array ('cost' => BCRYPT_COST);
+	//$derivedPassword = password_hash($Password,PASSWORD_BCRYPT,$options);
+	
+	# Verificamos estar conectados con la B.D.
+	
+	$dbConnect = conexionBD::getConexion();
+	mysqli_select_db($dbConnect,$baseDeDatos) or die("Could not select dbName.");
+	
+	# Verificamos si en la B.D. se encuentra alguna contraseña que coincida con la que acabamos de encriptar...
+	
+	$sql = "SELECT `password` FROM `datosusuario`";
+	$resultado = mysqli_query($dbConnect, $sql);
+	//$cantidadFilas = mysqli_num_rows($resultado);
+	//mysqli_free_result($resultado);
+	
+	while($fila = mysqli_fetch_row($resultado)){
+		
+		if(password_verify($Password,$fila[0]) ){
+			
+			//header ("Location: https://genshin.mihoyo.com/en");
+			$passwordRepetida = "si";
+			
+		}
+		
+		
+	}
+	
+	mysqli_free_result($resultado);
+	
+	# Verificamos si en la B.D. el nombre de usuario dado se encuentra repetido...
+	$sql = "SELECT `viajante` FROM `viajantes` WHERE `viajante` = \"".$nombreViajante."\";";
+	$resultado = mysqli_query($dbConnect, $sql);
+	
+	if(mysqli_num_rows($resultado)>0){
+		//header ("Location: https://genshin.mihoyo.com/en");
+		$viajanteRepetido = "si";
+	}
+	
+	mysqli_free_result($resultado);
+	
+	# Verificamos sin en la B.D. el e-mail dado del usuaro se encuentra repetido....
+	
+	$sql = "SELECT `email` FROM `datosusuario` WHERE `email` = \"".$direccionEmail."\";";
+	$resultado = mysqli_query($dbConnect, $sql);
+	
+	if(mysqli_num_rows($resultado)>0){
+		//header ("Location: https://genshin.mihoyo.com/en");
+		$emailRepetido = "si";
+	}
+	
+	mysqli_free_result($resultado);
+		
+	//echo "paso algo malo";
+	//if($cantidadFilas > 0 ){
+		
+		//header ("Location: https://genshin.mihoyo.com/en");
+		
+	//}
+	
+	
+	# Verificamos si alguno de los casos de datos repetidos se produjo, de ser asi, los mensjaes seran mostrados en pantalla....
+	
+	if($emailRepetido == "si" || $viajanteRepetido == "si" || $passwordRepetida == "si" ){
+		
+		//header ("Location: https://genshin.mihoyo.com/en");
+		include_once("Registro.php");
+		
+	}
+	
+	else{
+		crearUsuario();
+	}
+
+}
+/*---- Fin: metodo "impedirRepetidos" */
+
+
+
+
+
 /*---- Inicio : Funcion Creacion de usuario ----*/
 function crearUsuario(){
 	
@@ -406,8 +526,14 @@ function crearUsuario(){
 	global $tipoViajante;
 	global $estadoViajante;
 	
+	# Si no declaro esta variable como global, "Registro.php" no conoce la existencia de la variable (Investigar el problema)
+	global $usuarioCreado;
 	$usuarioCreado="no";
 	
+	# Si no las declaro dentro de este metodo, por alguna razon no las toma en Registro.php (Investigar el problema)
+	global $passwordRepetida;
+	global $emailRepetido;
+	global $viajanteRepetido;
 	
 	$baseDeDatos = "coppens";
 	
@@ -448,10 +574,11 @@ function crearUsuario(){
 	 unset($_POST['nombreViajante'], $_POST['direccionEmail'],$_POST['Password'],$_POST['confirmacionPassword'],$_POST['grupotipoviajante'],$_POST['grupoestadoviajante'] );
 	 
 	 
-	 #
+	 # Le damos valor "si" a la variable $usuarioCreado, luego, volvemos a mostrar  "Registro.php"
+	 
 	 
 	 $usuarioCreado = "si";
-	 include("Registro.php");
+	 include_once("Registro.php");
 }
 /*----------------------------------------------*/
 

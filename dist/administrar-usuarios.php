@@ -4,7 +4,7 @@ session_start();
 
 include_once("metodosDePHP.php");
 Seguridad::integridadSistema();
-Seguridad::testSeguridad();
+//Seguridad::testSeguridad();
 ?>
 
 <?php $title = "Administrar usuarios";
