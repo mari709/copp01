@@ -20,14 +20,7 @@
                                 </div>
                                 <div class="col-md-auto">
                                     <form>
-                                        <select name="selectTipo"> <!-- class="custom-select" size="3" -->
-                                            <option value="Todos" selected>Todos</option> 
-                                            <option value="Calefactor">Calefactor</option> 
-                                            <option value="Termotanque" >Termotanque</option>
-                                            <option value="Caldera">Caldera</option>
-                                            <option value="Repuesto">Repuesto</option>
-                                            <option value="Otros">Otros</option>
-                                        </select>
+                                        <?php include_once("../baseDeDatos/consultar_productos.php"); ?>    
                                     </form>
                                 </div>
                             </div>

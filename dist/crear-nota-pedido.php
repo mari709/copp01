@@ -14,8 +14,11 @@
                             <h5>1. Seleccionar comercio</h5>
                         </div>
                         <div class="card-body">
-                            <?php include_once("consultar_comercios.php"); ?>
-                            <form method="get" action="./crear-nota-pedido-2.php">
+
+                             <?php //include_once("../baseDeDatos/AgregarComercioNP.php"); ?> 
+                            <!-- <form method="post" action="./crear-nota-pedido-2.php"> -->
+                                <form method="post" action="./enviar.php">
+                                <?php include_once("../baseDeDatos/consultar_comercios.php"); ?>    
                                 <button id="apaso2" class="btn btn-primary mt-2" type="submit">Confirmar</button>
                             </form>
                         </div>
