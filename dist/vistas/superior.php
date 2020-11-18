@@ -11,7 +11,7 @@
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <link href="css/style-tablas.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/js/all.min.js" crossorigin="anonymous"></script>
    
    	<!---- Inicio : "Estilos" para Tablas ---->
    	<style>
@@ -23,10 +23,11 @@
    	</style>
     <!---- Fin : "Estilos" para Tablas ---->
    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
 
 
-<!----Inicio "body" -->    
+<!-- Inicio "body" -->    
 <body class="sb-nav-fixed">
     
     <!-- NAVBAR -->
@@ -35,9 +36,9 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
                     
             
-        <!---- Inicio : lista ---->
+        <!--Inicio : lista -->
         <ul class="navbar-nav ml-auto">
-            <!---- Inicio : Elemento #1 ---->                
+            <!--Inicio : Elemento #1 -->                
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                         
@@ -45,8 +46,8 @@
                     <a class="dropdown-item" href="./login.php">Cerrar sesión</a>
                 </div>
                         
-            </li> <!---- Fin : Elemento #1 ---->
-        </ul> <!---- Fin : lista ---->            
+            </li> <!--Fin : Elemento #1 -->
+        </ul> <!--Fin : lista -->            
     </nav>
     
     <!-- SIDEBAR -->
