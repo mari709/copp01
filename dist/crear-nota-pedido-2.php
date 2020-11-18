@@ -26,7 +26,7 @@ Seguridad::integridadSistema();
                         <div id="cardbodyProd" class="card-body">
                             <div class="row mb-3">
                                 <div class="col-md-auto">
-                                <form id="combo" name="combo" action="insert_detalle.php" method="POST">
+                                <form id="combo" name="combo" action="../baseDeDatos/insert_detalle.php" method="POST">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="font-weight-bold">Selecciona Familia</label>
@@ -52,11 +52,6 @@ Seguridad::integridadSistema();
                                 </form>
                                 </div>
                             </div>
-
-
-
-
-
 
                             <div id="divTablaProd" class="table table-responsive">
                             <h6>Seleccionar producto</h6>
@@ -93,7 +88,5 @@ Seguridad::integridadSistema();
     <?php include_once("vistas/footer.php"); ?>
     <?php include_once("vistas/scripts.php"); ?>
     <script src="js/notapedido.js"></script>
-
-
     </body>
 </html>
