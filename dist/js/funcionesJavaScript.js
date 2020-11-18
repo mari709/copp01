@@ -14,7 +14,6 @@ if(inputConfirmPassword.value != inputPassword.value){
 
 }
 
-
 }
 
 );

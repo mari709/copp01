@@ -12,6 +12,17 @@
         <link href="css/style-tablas.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+   
+   	<!---- Inicio : "Estilos" para Tablas ---->
+   	<style>
+   		table.dataTable thead{
+			background: linear-gradient(to right,#4A00E0,#8E2DE2);
+			color: white;
+		}
+   		
+   	</style>
+    <!---- Fin : "Estilos" para Tablas ---->
+   
     </head>
 
 

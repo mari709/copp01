@@ -91,20 +91,12 @@ if(isset($_POST['nombreViajante']) && isset($_POST['direccionEmail']) && isset($
 /*----------------------------------------------------------------------------------------*/
 
 
-
-# Usuario escribe sus dados en la pagina de login y presiona "ingresar" ....
-
-
-/* fin de rama gabriel 21-10-20 */
-
-
-
-
 error_reporting(E_ALL ^ E_NOTICE); // Notificar todos los errores excepto E_NOTICE
 
 
+# Usuario escribe sus dados en la pagina de login y presiona "ingresar" ....
 
-/*---Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"------------------------------*/
+/*----Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"-------------------*/
 if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 	testVerificacionLogin();
 	} 
@@ -112,8 +104,44 @@ if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 //else{
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
 //}
-/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
+
+
+
+# Admin ingresa a "administrar-usuarios"...
+
+/*---- Este codigo se ejecuta ni bien se invoca el archivo "funcionJavaScript1.js", el mismo envia por "POST" un "data": ----*/
+/*
+* Este archivo "data" se llama "tablaAdministrar" y su valor es "1".
+* Si, esto es correcto, le devolvemos a este Script la información de la tabla en formato "json"...
+* Este segmento de codigo NO SE ESTA UTILIZANDO ACTUALMENTE!!!! 
+*/
+function test($data){
+        return $data+10;
+        
+    }
+
+    if (isset($_POST['callFunc1'])) {
+        echo test($_POST['callFunc1']);
+    }
+
+
+
+if(isset($_POST['tablaAdministrar'])){
+	
+	header ("Location: https://genshin.mihoyo.com/en");
+	
+	if($_POST['tablaAdministrar']=="1"){
+		
+		
+		
+	}
+
+    } 
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 
 
