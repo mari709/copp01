@@ -171,7 +171,7 @@ function testVerificacionLogin(){
 	
 	$_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
 	
-	// incluyo o incorporo la p�gina "index.php"
+	// incluyo o incorporo la pagina "index.php"
 	
 	//include ("index.php");
 	//header("Location: ./index.php"); // Se redirecciona el usuario a...
@@ -179,7 +179,7 @@ function testVerificacionLogin(){
 	}
 	
 	else{
-		//El usuario y/o la contrase�a no fueron correctamente ingresados....
+															//El usuario y/o la contrasena no fueron correctamente ingresados....
 		 header("Location: ./login.php?errorusuario=si"); //Observar que se agrega "errorusuario=si" al link, al ser redireccionado, este dato sera 
 		 											     //utilizado.
 		
@@ -214,7 +214,11 @@ public static function testSeguridad(){
 	
 	if ($_SESSION["autentificado"] != "Si") {
     //si no existe, envio a la pagina de autentificacion
+<<<<<<< Updated upstream
     header("Location: ./login.php"); //   /copp01/dist/login.php
+=======
+    header("Location: login.php"); //   /copp01/dist/login.php
+>>>>>>> Stashed changes
     //ademas salgo de este script
     
     
@@ -230,7 +234,12 @@ public static function testSeguridad(){
 
 
 
+<<<<<<< Updated upstream
 /*---- Funcion "tiempoPermanencia", si el usuario supera los 10 minutos sera enviado a la pa�gina de login  ---- */
+=======
+
+/*---- Funcion "tiempoPermanencia", si el usuario supera los 10 minutos sera enviado a la pagina de login  ---- */
+>>>>>>> Stashed changes
 public static function tiempoPermanencia(){
 	
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
@@ -256,7 +265,7 @@ public static function tiempoPermanencia(){
 	 	
 	 	session_destroy();
 	 	
-	 	//reedirijimos al usuario a la p�gina de autenticaci�n...
+	 	//reedirijimos al usuario a la pagina de autenticacion...
 	 	
 	 	header("Location: ./login.php");
 	 	
