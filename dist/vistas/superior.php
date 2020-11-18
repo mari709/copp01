@@ -64,8 +64,8 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Sesión iniciada como:</div>
-                        Mi nombre
+                        <div class="small">Sesión iniciada como: <?php echo "$miusuario"; ?> </div>
+                        
                     </div>
                 </nav>
             </div>

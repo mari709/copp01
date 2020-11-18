@@ -1,5 +1,15 @@
+<?php
+session_name("loginUsuario"); 
+session_start();
+
+include_once("metodosDePHP.php");
+Seguridad::integridadSistema();
+//Seguridad::testSeguridad();
+?>
 <?php $title = "Elegir productos - Nota pedido";
-    include("vistas/superior.php"); ?>
+	require ('../baseDeDatos/conexion.php');
+    include("vistas/superior.php");
+    include("../baseDeDatos/consultaFamilia.php") ?>
             
             <!-- INICIO CONTENIDO PRINCIPAL -->
             <main>
@@ -16,12 +26,30 @@
                         <div id="cardbodyProd" class="card-body">
                             <div class="row mb-3">
                                 <div class="col-md-auto">
-                                    <h6>Ver tipo de producto</h6>
-                                </div>
-                                <div class="col-md-auto">
-                                    <form>
-                                        <?php include_once("../baseDeDatos/consultar_productos.php"); ?>    
-                                    </form>
+                                <form id="combo" name="combo" action="insert_detalle.php" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="font-weight-bold">Selecciona Familia</label>
+                                            <select class="form-control" name= "select-familia" id="select-familia">
+                                                <option value="0">Familia</option>
+                                                <?php while($row = $resultado->fetch_assoc()) { ?>
+                                                <option value="<?php echo $row['idfamilia']; ?>">
+                                                <?php echo $row['familia']; ?>
+                                                </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="font-weight-bold">Selecciona Producto</label>
+                                            <select class="form-control" name="select-productos" id="select-productos">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input class="form-control" type="text" name = "last" disabled value = <?php echo $numero?> />
+                                            <input class=" form-control btn btn-primary" type="submit" id="enviar" name="enviar" value="Guardar" />
+                                        </div>
+                                    </div>
+                                </form>
                                 </div>
                             </div>
 
@@ -31,60 +59,8 @@
 
 
                             <div id="divTablaProd" class="table table-responsive">
-                                <table data-page-length='5' class="table table-bordered" id="tablaproductos" width="100%" cellspacing="0">
-                                    <thead>Seleccionar producto
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Código</th>
-                                            <th>Producto</th>
-                                            <th>Tipo de producto</th>
-                                            <th>Familia</th>
-                                            <th>Marca (Cla 1)</th>
-                                            <th>Energia (Cla 2)</th>
-                                            <th>(Cla 3)</th>
-                                            <th>m3</th>
-                                            <th>Segmento</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>TTQE65CO</td>
-                                            <td>65 LTS ELECTRICO</td>
-                                            <td>Termotanque</td>
-                                            <td>Electrico</td>
-                                            <td>Coppens</td>
-                                            <td>Electrico</td>
-                                            <td></td>
-                                            <td>0.150</td>
-                                            <td>0.150</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>TTQE65CO</td>
-                                            <td>65 LTS ELECTRICO</td>
-                                            <td>Termotanque</td>
-                                            <td>Electrico</td>
-                                            <td>Coppens</td>
-                                            <td>Electrico</td>
-                                            <td></td>
-                                            <td>0.150</td>
-                                            <td>0.150</td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>TTQE65CO</td>
-                                            <td>65 LTS ELECTRICO</td>
-                                            <td>Termotanque</td>
-                                            <td>Electrico</td>
-                                            <td>Coppens</td>
-                                            <td>Electrico</td>
-                                            <td></td>
-                                            <td>0.150</td>
-                                            <td>0.150</td>
-                                        </tr>
-                                    </tbody> 
-                                </table>
+                            <h6>Seleccionar producto</h6>
+
                             </div> <!-- fin divTablaProd -->
                             <div class="container-fluid" style=" background-color: #f8f9fa"> 
                                 <table class="table table-responsive" cellspacing="0"> <!-- esto se hace con tabla o con form? -->
@@ -116,6 +92,8 @@
 
     <?php include_once("vistas/footer.php"); ?>
     <?php include_once("vistas/scripts.php"); ?>
+    <script src="js/notapedido.js"></script>
+
 
     </body>
 </html>

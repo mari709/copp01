@@ -7,7 +7,7 @@ $conexion = $objeto->Conectar();
 $sql2 = "select idc,comercio FROM comercios order by comercio asc";
 ?>
 
-<select name =clientes >
+<select class="form-control" name =clientes >
 
 <?php
 foreach($conexion->query($sql2) AS $resultado)

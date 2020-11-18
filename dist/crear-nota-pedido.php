@@ -1,3 +1,11 @@
+<?php
+session_name("loginUsuario"); 
+session_start();
+
+include_once("metodosDePHP.php");
+Seguridad::integridadSistema();
+//Seguridad::testSeguridad();
+?>
 <?php $title = "Crear nota pedido";
     include("vistas/superior.php"); ?>
             
@@ -14,13 +22,20 @@
                             <h5>1. Seleccionar comercio</h5>
                         </div>
                         <div class="card-body">
-
-                             <?php //include_once("../baseDeDatos/AgregarComercioNP.php"); ?> 
-                            <!-- <form method="post" action="./crear-nota-pedido-2.php"> -->
-                                <form method="post" action="./enviar.php">
-                                <?php include_once("../baseDeDatos/consultar_comercios.php"); ?>    
-                                <button id="apaso2" class="btn btn-primary mt-2" type="submit">Confirmar</button>
-                            </form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <?php //include_once("../baseDeDatos/AgregarComercioNP.php"); ?>
+                                    <form method="post" action="./enviar-np.php">
+                                        <?php include_once("../baseDeDatos/consultar_comercios.php"); ?> 
+                                        <br>
+                                </div>
+                                <div class="col-md-6"> 
+                                    <!-- <form method="post" action="./crear-nota-pedido-2.php"> -->
+                                        
+                                        <button id="apaso2" class="btn btn-primary" type="submit">Confirmar</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>                   
                 </div>
