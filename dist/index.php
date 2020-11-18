@@ -15,7 +15,10 @@ Seguridad::testSeguridad();
 ?>
 
 <?php $title = "Principal";
-    include("vistas/superior.php"); ?>
+    include("vistas/superior.php");
+    require ('../baseDeDatos/conexion.php');
+    ?>
+    
     
 <!--INICIO CONTENIDO PRINCIPAL-->
     <main>
@@ -78,6 +81,22 @@ Seguridad::testSeguridad();
                                 </tr>
                             </tfoot>
                             <tbody>
+                        <?php 
+                                $sql  = "SELECT idnp,fecha FROM nota_pedidos";
+                                $resultado = mysqli_query($link, $sql);
+                        ?>
+                                <?php 
+                                    foreach($link->query($sql) AS $resultado) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $nota_pedidos['idnp']?></td>
+                                        <td><?php echo $nota_pedidos['fecha']?></td>
+                                        <td><?php echo $nota_pedidos['fecha']?></td>
+
+                                    </tr>
+                                    <?php     
+                                    }
+                                    ?>
                             </tbody>
                         </table>
                     </div>
@@ -89,7 +108,8 @@ Seguridad::testSeguridad();
 <?php include_once("vistas/footer.php"); ?>
 <?php include_once("vistas/scripts.php"); ?>
 
-<script>
+
+<!-- <script>
       $(document).ready(function() {
           $('#tablaPedidosPendientes').DataTable( {
             "dom": 'ftipr',
@@ -104,7 +124,7 @@ Seguridad::testSeguridad();
             ]  
           });
       });
-    </script>
+    </script> -->
     
     </body>
 </html>
