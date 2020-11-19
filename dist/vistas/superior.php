@@ -13,9 +13,18 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="./js/jquery-3.5.1.min.js"></script>
+   
+   	<!---- Inicio : "Estilos" para Tablas ---->
+   	<style>
+   		table.dataTable thead{
+			background: linear-gradient(to right,#4A00E0,#8E2DE2);
+			color: white;
+		}
+   		
+   	</style>
+    <!---- Fin : "Estilos" para Tablas ---->
+   
     </head>
-
-
 <!-- Inicio "body" -->    
 <body class="sb-nav-fixed">
     

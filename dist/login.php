@@ -44,13 +44,13 @@
 </div>
 <!-------------------------------------------------------------------------------------------------------->
                                             
-                                            
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                    <label class="custom-control-label" for="rememberPasswordCheck">Recordar contraseña</label>
-                                                </div>
-                                            </div>
+<!----Inicio : "checkbox" de "Recordar contraseña" ------------------------------------------------------->                             <div class="form-group">
+<div class="custom-control custom-checkbox">
+<input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+<label class="custom-control-label" for="rememberPasswordCheck">Recordar contraseña</label>
+</div>
+</div>       
+<!---- Fin : "checkbox" de "Recordad contraseña" ----->
                                             
 
 <!---- "Div" , aqui se encuentran botones de "Olvide mi contraseña" e "Ingresar" ---------->
