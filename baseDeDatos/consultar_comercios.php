@@ -1,13 +1,15 @@
 <?php
 $contador = 0;
 include '../baseDeDatos/conexion.php';
+$objeto = new Conexion();
+$conexion = $objeto->Conectar();
 $sql2 = "select idc,comercio FROM comercios order by comercio asc";
 ?>
 
 <select class="form-control" name =clientes >
 
 <?php
-    foreach($link->query($sql2) AS $resultado)
+    foreach($conexion->query($sql2) AS $resultado)
     {
         $contador++;    
         ?> 

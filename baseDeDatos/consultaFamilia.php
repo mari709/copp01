@@ -1,6 +1,9 @@
 <?php 
 
-    include '../baseDeDatos/conexion.php';
+$link = mysqli_connect( "localhost", "root", "")
+or die ("no se ha podido conectar");
+mysqli_select_db($link, "Coppens")
+or die("Error al tratar de selecccionar esta base");
 
 
     $query = "SELECT idfamilia,familia FROM productos group by idfamilia";
@@ -11,3 +14,7 @@
     $resultado2 = mysqli_fetch_assoc($query2);
     $numero = $resultado2['idnp'];
 ?>
+
+
+
+
