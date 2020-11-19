@@ -1,4 +1,7 @@
 <?php
+	//"idviajante" en tabla nota_pedidos = "codigo" en tabla viajantes
+	$miusuario = 500; 	 //podria ser retornado de la funcion de inicio de sesion. 
+
 /*---- Borradores ---------------------------------------*/
 //echo "se ejecuto";
 //echo filter_input(INPUT_POST,'inputEmailAddress');
@@ -166,7 +169,8 @@ function testVerificacionLogin(){
 	// Defino en la sesion que el usuario esta autorizado...
 	
 	$_SESSION["autentificado"] = "Si";
-	
+
+
 	// Defino la fecha y hora de inicio de sesi�n en formato "aaaa-mm-dd hh:mm:ss"
 	
 	$_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
@@ -246,7 +250,7 @@ public static function tiempoPermanencia(){
 	//"ahora" y el tiempo almacenado en la variable "fechaGuardada", el resultado estara dado en segundos...
 	$tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
 	
-	echo $tiempo_transcurrido;
+	//echo $tiempo_transcurrido;
 	
 	#Procedemos a comparar el tiempo transcurrido con el limite que fijemos nosotros como maximo... 
 	 

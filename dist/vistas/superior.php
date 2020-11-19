@@ -12,6 +12,7 @@
         <link href="css/style-tablas.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="./js/jquery-3.5.1.min.js"></script>
    
    	<!---- Inicio : "Estilos" para Tablas ---->
    	<style>
@@ -73,8 +74,8 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Sesión iniciada como:</div>
-                        Mi nombre
+                        <div class="small">Sesión iniciada como: <?php echo "$miusuario"; ?> </div>
+                        
                     </div>
                 </nav>
             </div>
