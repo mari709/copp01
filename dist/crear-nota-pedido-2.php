@@ -107,7 +107,7 @@
                                         <tr>
                                             <td>11593</td>
                                             <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="0" max="999"></td>
-                                            <td>30</td>
+                                            <td><input type="number" id="cantidadprod" name="cantidadprod" value="0" min="0" max="999"></td>
                                             <td>7303</td>
                                         </tr>
                                     </tbody> 
