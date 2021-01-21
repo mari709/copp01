@@ -149,7 +149,7 @@ if(isset($_POST['tablaAdministrar'])){
 function testVerificacionLogin(){
 	
 	if($_POST['inputEmailAddress']=="admin@hotmail.com" && $_POST['inputPassword']=="12345"){
-	//Si el metodo "if" se cumple, tanto la contrase�a como el email son v�lidos...
+	//Si el metodo "if" se cumple, tanto la contrasena como el email son validos...
 	
 	//Limpio los elementos del array() "$_POST" , tanto "inputEmailAddress" como "inputPassword" , no hace falta en realidad por que una vez cruzado este punto, se ejecutara un "header()" donde ya nada queda almacenado, pero si en vez de eso se decide utilizar un "include()" sera 100% necesario limpiar las varianbles puesto que si no se ejecutara el if del inicio del script que ejecuta "testVerificacionLogin()"
 	
