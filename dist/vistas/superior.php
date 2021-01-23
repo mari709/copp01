@@ -13,6 +13,8 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="./js/jquery-3.5.1.min.js"></script>
+        <script src="./js/engine3.js"></script>
+
    
    	<!---- Inicio : "Estilos" para Tablas ---->
    	<style>

@@ -29,7 +29,7 @@ Seguridad::integridadSistema();
                                     <form id="combo" name="combo" action="../baseDeDatos/insert_detalle.php" method="POST">
                                         <div id="col-fam-pro" class="row">
                                             <div class="col-md-6">
-                                                <label class="font-weight-bold">Selecciona Familia</label>
+                                                <label class="font-weight-bold">Familia de producto</label>
                                                 <select class="form-control" name= "select-familia" id="select-familia">
                                                     <option value="0">Familia</option>
                                                     <?php while($row = $resultado->fetch_assoc()) { ?>
@@ -40,7 +40,7 @@ Seguridad::integridadSistema();
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="font-weight-bold">Selecciona Producto</label>
+                                                <label class="font-weight-bold">Producto</label>
                                                 <select class="form-control" name="select-productos" id="select-productos">
                                                 </select>
                                             </div>
@@ -57,7 +57,7 @@ Seguridad::integridadSistema();
                                                 </thead>   
                                                 <tbody>
                                                     <tr>
-                                                        <td>11593</td>
+                                                        <td><label id = "valueshow"></label></td>
                                                         <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="0" max="999"></td>
                                                         <td><input type="number" id="cantidadprod" name="cantidadprod" value="0" min="0" max="999"></td>
                                                         <td>7303</td>
