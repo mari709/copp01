@@ -5,7 +5,7 @@ include_once '../baseDeDatos/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
-$consulta  = "SELECT idnp,fecha FROM nota_pedidos";
+$consulta  = "SELECT idnp,fecha FROM nota_pedidos order by idnp desc";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 $data=$resultado->fetchAll(PDO::FETCH_ASSOC);

@@ -61,7 +61,7 @@ Seguridad::testSeguridad();
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <label>Fecha:   <input class="form-control form-control-sm ml-2" style="width: fit-content; display: inherit ;" type="date" id="datePedidosPendientes" aria-controls="tablaPedidosPendientes"/></label>
+                        <!-- <label>Fecha:   <input class="form-control form-control-sm ml-2" style="width: fit-content; display: inherit ;" type="date" id="datePedidosPendientes" aria-controls="tablaPedidosPendientes"/></label> -->
                         <table class="table table-bordered" id="tablaPedidosPendientes" width="100%" cellspacing="0">
                             <thead>
                                 <tr>

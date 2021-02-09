@@ -4,7 +4,8 @@ include_once '../baseDeDatos/conexion.php';
 //consulta comercios
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
-$consulta = "SELECT `idc`, `comercio`, `localidad`, `provincia`, `direccion`, `codpostal`, `cuit` FROM `comercios`";
+//$consulta = "SELECT `idviajante` , `viajante`, `estado_viajante`, `comision` FROM `viajantes`";
+$consulta = "SELECT `v`.`idviajante`, `viajante`,`comision`,`statusUser`,`email`,IF(`estado_viajante`= 1,\"Habilitado\",\"Deshabilitado\") AS `estado` FROM `viajantes` AS `v` INNER JOIN `datosusuario` as `d` ON (`v`.`idviajante` = `d`.`idViajante`);";
 $resultado = $conexion->prepare($consulta);
 $resultado->execute();
 $data=$resultado->fetchAll(PDO::FETCH_ASSOC);

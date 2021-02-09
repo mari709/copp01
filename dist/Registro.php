@@ -92,12 +92,15 @@ Seguridad::integridadSistema();
 <!----Inicio : Fila #3 ---->                                            
 
 <!---- Inicio : Campo "Email" ---->
+<!---- <div class="col-md-12"> ---->
+
 <div class="form-group">
 <label class="small mb-1" for="inputEmailAddress">
 <?php if($emailRepetido!="si"){ ?>Email<?php } else{?><span style="color:#f82007"> Email ya utilizado </span><?php } ?></label>
 <input class="form-control py-4" id="inputEmailAddress" name="direccionEmail" type="email" aria-describedby="emailHelp" placeholder="Ingrese su direccion de email" required />
 </div>
 
+<!---- </div> ---->
 <!---- Fin : Fila #3 ----> 
 
 
@@ -111,7 +114,7 @@ Seguridad::integridadSistema();
 <label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>
 <?php if($passwordRepetida!="si"){ ?>Password <?php } else{?><span style="color:#f82007"> Password ya utilizada </span><?php } ?></div></label>
 
-<label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>Contraseña</div></label>
+<!---- <label class="small mb-1" for="inputPassword"><div id='ErrorContrasena'>Contraseña</div></label> ---->
 
 <!---- <div id='ErrorContrasena' style="color : red"></div>  ---->
 <input class="form-control py-4" id="inputPassword" name="Password" type="password" placeholder="Ingrese contraseña" required />

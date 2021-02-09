@@ -1,4 +1,7 @@
 <?php
+	//"idviajante" en tabla nota_pedidos = "codigo" en tabla viajantes
+	$miusuario = 500; 	 //podria ser retornado de la funcion de inicio de sesion. 
+
 /*---- Borradores ---------------------------------------*/
 //echo "se ejecuto";
 //echo filter_input(INPUT_POST,'inputEmailAddress');
@@ -91,20 +94,12 @@ if(isset($_POST['nombreViajante']) && isset($_POST['direccionEmail']) && isset($
 /*----------------------------------------------------------------------------------------*/
 
 
-
-# Usuario escribe sus dados en la pagina de login y presiona "ingresar" ....
-
-
-/* fin de rama gabriel 21-10-20 */
-
-
-
-
 error_reporting(E_ALL ^ E_NOTICE); // Notificar todos los errores excepto E_NOTICE
 
 
+# Usuario escribe sus dados en la pagina de login y presiona "ingresar" ....
 
-/*---Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"------------------------------*/
+/*----Este codigo se ejecuta cuando "input" invoca este archivo mediante el method:"POST" de la pagina "login.php"-------------------*/
 if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 	testVerificacionLogin();
 	} 
@@ -112,8 +107,44 @@ if(isset($_POST['inputEmailAddress']) && isset($_POST['inputPassword'])){
 //else{
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
 //}
-/*-----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------*/
 
+
+
+
+# Admin ingresa a "administrar-usuarios"...
+
+/*---- Este codigo se ejecuta ni bien se invoca el archivo "funcionJavaScript1.js", el mismo envia por "POST" un "data": ----*/
+/*
+* Este archivo "data" se llama "tablaAdministrar" y su valor es "1".
+* Si, esto es correcto, le devolvemos a este Script la información de la tabla en formato "json"...
+* Este segmento de codigo NO SE ESTA UTILIZANDO ACTUALMENTE!!!! 
+*/
+function test($data){
+        return $data+10;
+        
+    }
+
+    if (isset($_POST['callFunc1'])) {
+        echo test($_POST['callFunc1']);
+    }
+
+
+
+if(isset($_POST['tablaAdministrar'])){
+	
+	header ("Location: https://genshin.mihoyo.com/en");
+	
+	if($_POST['tablaAdministrar']=="1"){
+		
+		
+		
+	}
+
+    } 
+
+
+/*---------------------------------------------------------------------------------------------------------------------------*/
 
 
 
@@ -138,12 +169,13 @@ function testVerificacionLogin(){
 	// Defino en la sesion que el usuario esta autorizado...
 	
 	$_SESSION["autentificado"] = "Si";
-	
+
+
 	// Defino la fecha y hora de inicio de sesi�n en formato "aaaa-mm-dd hh:mm:ss"
 	
 	$_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
 	
-	// incluyo o incorporo la p�gina "index.php"
+	// incluyo o incorporo la pagina "index.php"
 	
 	//include ("index.php");
 	//header("Location: ./index.php"); // Se redirecciona el usuario a...
@@ -151,7 +183,7 @@ function testVerificacionLogin(){
 	}
 	
 	else{
-		//El usuario y/o la contrase�a no fueron correctamente ingresados....
+															//El usuario y/o la contrasena no fueron correctamente ingresados....
 		 header("Location: ./login.php?errorusuario=si"); //Observar que se agrega "errorusuario=si" al link, al ser redireccionado, este dato sera 
 		 											     //utilizado.
 		
@@ -186,7 +218,7 @@ public static function testSeguridad(){
 	
 	if ($_SESSION["autentificado"] != "Si") {
     //si no existe, envio a la pagina de autentificacion
-    header("Location: ./login.php"); //   /copp01/dist/login.php
+    header("Location: login.php"); //   /copp01/dist/login.php
     //ademas salgo de este script
     
     
@@ -202,7 +234,8 @@ public static function testSeguridad(){
 
 
 
-/*---- Funcion "tiempoPermanencia", si el usuario supera los 10 minutos sera enviado a la pa�gina de login  ---- */
+
+/*---- Funcion "tiempoPermanencia", si el usuario supera los 10 minutos sera enviado a la pagina de login  ---- */
 public static function tiempoPermanencia(){
 	
 	//header("Location: https://www.google.com/search?q=premier+league+posiciones&oq=premier+l&aqs=chrome.0.69i59j69i57j46j0l2j69i60l3.7977j0j7&sourceid=chrome&ie=UTF-8");
@@ -217,7 +250,7 @@ public static function tiempoPermanencia(){
 	//"ahora" y el tiempo almacenado en la variable "fechaGuardada", el resultado estara dado en segundos...
 	$tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
 	
-	echo $tiempo_transcurrido;
+	//echo $tiempo_transcurrido;
 	
 	#Procedemos a comparar el tiempo transcurrido con el limite que fijemos nosotros como maximo... 
 	 
@@ -228,7 +261,7 @@ public static function tiempoPermanencia(){
 	 	
 	 	session_destroy();
 	 	
-	 	//reedirijimos al usuario a la p�gina de autenticaci�n...
+	 	//reedirijimos al usuario a la pagina de autenticacion...
 	 	
 	 	header("Location: ./login.php");
 	 	
