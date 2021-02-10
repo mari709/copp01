@@ -57,10 +57,13 @@ Seguridad::integridadSistema();
                                                 </thead>   
                                                 <tbody>
                                                     <tr>
+                                                      <td><span id = "valueshow"></span></td>
+<!--
                                                         <td><label id = "valueshow"></label></td>
+    -->                                                    
                                                         <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="0" max="999"></td>
-                                                        <td><input type="number" id="cantidadprod" name="cantidadprod" value="0" min="0" max="999"></td>
-                                                        <td>7303</td>
+                                                        <td><input type="number" id="descuento-por-producto" name="descuento-por-producto" value="10" min="0" max="100"></td>
+                                                        <td><span id = "respuesta"></span></td>
                                                     </tr>
                                                 </tbody> 
                                             </table>
@@ -80,5 +83,47 @@ Seguridad::integridadSistema();
     <?php include_once("vistas/footer.php"); ?>
     <?php include_once("vistas/scripts.php"); ?>
     <script src="js/notapedido.js"></script>
+
+    <script>
+    $(document).on('keyup','#cantidadprod', function(){
+    var valor2 = $('#descuento-por-producto').val();
+    var valor3 = $('#cantidadprod').val();
+    realizaProceso(valor2,valor3);
+   
+    console.log(valor2);
+    console.log(valor3);
+});
+
+function realizaProceso(valor2,valor3){
+    var valores = {
+            "valorCaja2" : valor2,
+            "valorCaja3" : valor3
+    };
+
+      console.log(valores.valorCaja2);
+      console.log(valores.valorCaja3);
+      
+    $.ajax({
+            data:  valores, //datos que se envian a traves de ajax
+            url:   'calculos.php', //archivo que recibe la peticion
+            type:  'post', //método de envio
+            beforeSend: function () {
+                    $("#respuesta").html("Procesando, espere por favor...");
+            },
+            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                    $("#respuesta").html(response);
+            }
+    });    
+
+
+   
+    
+}
+
+
+
+
+
+    </script>
     </body>
 </html>
