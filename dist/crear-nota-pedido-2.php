@@ -61,8 +61,8 @@ Seguridad::integridadSistema();
 <!--
                                                         <td><label id = "valueshow"></label></td>
     -->                                                    
-                                                        <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="0" max="999"></td>
-                                                        <td><input type="number" id="descuento-por-producto" name="descuento-por-producto" value="10" min="0" max="100"></td>
+                                                        <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="1" max="999" class ='variablesproducto'></td>
+                                                        <td><input type="number" id="descuento-por-producto" name="descuento-por-producto" value="0" min="0" max="100"class='variablesproducto'></td>
                                                         <td><span id = "respuesta"></span></td>
                                                     </tr>
                                                 </tbody> 
@@ -70,7 +70,7 @@ Seguridad::integridadSistema();
                                         </div> <!-- fin div id divTablaProd  -->
                                             <div class="col-md-4">
                                                 <input class="form-control" type="text" name = "last" hidden value = <?php echo $numero?> />
-                                                <input class=" form-control btn btn-primary" type="submit" id="enviar" name="enviar" value="Guardar" />
+                                                <input class=" form-control btn btn-primary"  id="confirmar-articulo" name="enviar" value="Guardar" />
                                             </div>
                                     </form> <!-- fin form combo -->
                                 </div>
@@ -85,40 +85,95 @@ Seguridad::integridadSistema();
     <script src="js/notapedido.js"></script>
 
     <script>
-    $(document).on('keyup','#cantidadprod', function(){
-    var valor2 = $('#descuento-por-producto').val();
-    var valor3 = $('#cantidadprod').val();
-    realizaProceso(valor2,valor3);
+    $(document).on('change','.variablesproducto', function(){
+    //$(document).on('change','#cantidadprod', function(){
+    var valor2 = $('#cantidadprod').val();
+    var valor3 = $('#descuento-por-producto').val();
+    operarPrecio(valor2,valor3);
    
-    console.log(valor2);
-    console.log(valor3);
+    //console.log(valor2);
+    //console.log(valor3);
 });
 
-function realizaProceso(valor2,valor3){
+function operarPrecio(valor2,valor3){ //calcula el producto unidad-cantidad-descuento
     var valores = {
             "valorCaja2" : valor2,
             "valorCaja3" : valor3
+            
     };
 
-      console.log(valores.valorCaja2);
-      console.log(valores.valorCaja3);
+    //console.log("cantidad de productos:");
+    //console.log(valores.valorCaja2);
+    //console.log("descuento por productos:");
+    //console.log(valores.valorCaja3);
       
     $.ajax({
             data:  valores, //datos que se envian a traves de ajax
             url:   'calculos.php', //archivo que recibe la peticion
             type:  'post', //método de envio
             beforeSend: function () {
-                    $("#respuesta").html("Procesando, espere por favor...");
+                    $("#respuesta").html("Calculando...");
             },
             success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
                     $("#respuesta").html(response);
             }
     });    
-
-
-   
     
 }
+//revisar input para q manualmente respete lo indicado 
+/*
+var inputCantProducto =  document.getElementById('cantidadprod');
+inputCantProducto.addEventListener('inputCantProducto',function(){
+  if (this.value.length > 3) 
+     this.value = this.value.slice(0,3); 
+})
+*/
+
+$(document).on('click','#confirmar-articulo', function(){
+    var valora = $('#cantidadprod').val();
+    var valorb = $('#descuento-por-producto').val();
+    var valorc = $('#select-familia').val();
+    var valord = $('#select-productos').val();
+
+
+    f_confirmar_producto(valora,valorb,valorc,valord);
+    
+   // console.log(valora);
+    //console.log(valorb);
+
+    
+});
+
+function f_confirmar_producto(valor2,valor3,valor4,valor5){ //calcula el producto unidad-cantidad-descuento
+    var values = {
+            "vCaja2" : valor2,
+            "vCaja3" : valor3,
+            "vCaja4" : valor4,
+            "vCaja5" : valor5
+    };
+
+      console.log('-- valores que se van a grabar --');
+      console.log(values.vCaja2);
+      console.log(values.vCaja3);
+      console.log(values.vCaja4);
+      console.log(values.vCaja5);
+      console.log('---------------------------------');
+      
+    $.ajax({
+            data:  values, //datos que se envian a traves de ajax
+            url:   '../baseDeDatos/insert_detalle.php', //archivo que recibe la peticion
+            type:  'post', //método de envio
+            beforeSend: function () {
+                    $("#respuesta").html("insertando...");
+            },
+           success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+                    $("#respuesta").html(response);
+            }
+    });    
+    
+}
+
+
 
 
 
