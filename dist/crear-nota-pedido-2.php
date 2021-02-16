@@ -9,7 +9,11 @@ Seguridad::integridadSistema();
 <?php $title = "Elegir productos - Nota pedido";
 	//require ('../baseDeDatos/conexion.php');
     include("vistas/superior.php");
-    include("../baseDeDatos/consultaFamilia.php") ?>
+    include("../baseDeDatos/consultaFamilia.php") //calcula ultimo id_nota_pedido
+    
+    
+    
+    ?>
             
             <!-- INICIO CONTENIDO PRINCIPAL -->
             <main>
@@ -69,7 +73,7 @@ Seguridad::integridadSistema();
                                             </table>
                                         </div> <!-- fin div id divTablaProd  -->
                                             <div class="col-md-4">
-                                                <input class="form-control" type="text" name = "last" hidden value = <?php echo $numero?> />
+                                                <input class="form-control" type="text" id="last" name ="last" value = <?php  echo $numero; ?> hidden />
                                                 <input class=" form-control btn btn-primary"  id="confirmar-articulo" name="enviar" value="Guardar" />
                                             </div>
                                     </form> <!-- fin form combo -->
@@ -134,9 +138,10 @@ $(document).on('click','#confirmar-articulo', function(){
     var valorb = $('#descuento-por-producto').val();
     var valorc = $('#select-familia').val();
     var valord = $('#select-productos').val();
+    var valore = $('#last').val();
 
 
-    f_confirmar_producto(valora,valorb,valorc,valord);
+    f_confirmar_producto(valora,valorb,valorc,valord,valore);
     
    // console.log(valora);
     //console.log(valorb);
@@ -144,19 +149,21 @@ $(document).on('click','#confirmar-articulo', function(){
     
 });
 
-function f_confirmar_producto(valor2,valor3,valor4,valor5){ //calcula el producto unidad-cantidad-descuento
+function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el producto unidad-cantidad-descuento
     var values = {
             "vCaja2" : valor2,
             "vCaja3" : valor3,
             "vCaja4" : valor4,
-            "vCaja5" : valor5
+            "vCaja5" : valor5,
+            "vCaja6" : valor6
     };
 
       console.log('-- valores que se van a grabar --');
-      console.log(values.vCaja2);
-      console.log(values.vCaja3);
-      console.log(values.vCaja4);
-      console.log(values.vCaja5);
+      console.log(values.vCaja2);//cantidad
+      console.log(values.vCaja3);//descuento
+      console.log(values.vCaja4);//id_familia
+      console.log(values.vCaja5);//id_producto
+      console.log(values.vCaja6);//last
       console.log('---------------------------------');
       
     $.ajax({
@@ -167,15 +174,11 @@ function f_confirmar_producto(valor2,valor3,valor4,valor5){ //calcula el product
                     $("#respuesta").html("insertando...");
             },
            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                    $("#respuesta").html(response);
+                    $("#respuesta").html("ok");
             }
     });    
     
 }
-
-
-
-
 
 
 
