@@ -4,6 +4,8 @@ $cantidad = $_POST['valorCaja2'];
 $descuento = $_POST['valorCaja3'];
 $precio_unidad = $_SESSION['psi'];//
 
+if(($descuento=='')){$descuento = 0;};
+
 $cant_por_precio_unidad = $cantidad * $precio_unidad;   
 $descuento_desc1 = $descuento/100;
 $total_con_desc1 = $cant_por_precio_unidad * $descuento_desc1;

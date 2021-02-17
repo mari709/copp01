@@ -45,7 +45,7 @@ Seguridad::integridadSistema();
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="font-weight-bold">Producto</label>
-                                                <select class="form-control" name="select-productos" id="select-productos">
+                                                <select class="form-control" name="select-productos" id="select-productos" class ='variablesproducto'>
                                                 </select>
                                             </div>
                                         </div> <!-- fin div id col-fam-pro -->
@@ -61,19 +61,19 @@ Seguridad::integridadSistema();
                                                 </thead>   
                                                 <tbody>
                                                     <tr>
-                                                      <td><span id = "valueshow"></span></td>
+                                                      <td><span id = "valueshow" class='variablesproducto'></span></td>
 <!--
                                                         <td><label id = "valueshow"></label></td>
     -->                                                    
-                                                        <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="1" max="999" class ='variablesproducto'></td>
-                                                        <td><input type="number" id="descuento-por-producto" name="descuento-por-producto" value="0" min="0" max="100"class='variablesproducto'></td>
+                                                        <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="1" max="999" class ='variablesproducto'/></td>
+                                                        <td><input type="number" id="descuento-por-producto" name="descuento-por-producto" value="0" min="0" max="100"class='variablesproducto'/></td>
                                                         <td><span id = "respuesta"></span></td>
                                                     </tr>
                                                 </tbody> 
                                             </table>
                                         </div> <!-- fin div id divTablaProd  -->
                                             <div class="col-md-4">
-                                                <input class="form-control" type="text" id="last" name ="last" value = <?php  echo $numero; ?> hidden />
+                                                <input class="form-control" type="text" id="last" name ="last" value = <?php  echo $numero; ?>  hidden/>
                                                 <input class=" form-control btn btn-primary"  id="confirmar-articulo" name="enviar" value="Guardar" />
                                             </div>
                                     </form> <!-- fin form combo -->
@@ -90,13 +90,10 @@ Seguridad::integridadSistema();
 
     <script>
     $(document).on('change','.variablesproducto', function(){
-    //$(document).on('change','#cantidadprod', function(){
     var valor2 = $('#cantidadprod').val();
     var valor3 = $('#descuento-por-producto').val();
     operarPrecio(valor2,valor3);
-   
-    //console.log(valor2);
-    //console.log(valor3);
+    
 });
 
 function operarPrecio(valor2,valor3){ //calcula el producto unidad-cantidad-descuento
@@ -105,12 +102,7 @@ function operarPrecio(valor2,valor3){ //calcula el producto unidad-cantidad-desc
             "valorCaja3" : valor3
             
     };
-
-    //console.log("cantidad de productos:");
-    //console.log(valores.valorCaja2);
-    //console.log("descuento por productos:");
-    //console.log(valores.valorCaja3);
-      
+  
     $.ajax({
             data:  valores, //datos que se envian a traves de ajax
             url:   'calculos.php', //archivo que recibe la peticion
@@ -140,12 +132,7 @@ $(document).on('click','#confirmar-articulo', function(){
     var valord = $('#select-productos').val();
     var valore = $('#last').val();
 
-
     f_confirmar_producto(valora,valorb,valorc,valord,valore);
-    
-   // console.log(valora);
-    //console.log(valorb);
-
     
 });
 
@@ -166,21 +153,24 @@ function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el 
       console.log(values.vCaja6);//last
       console.log('---------------------------------');
       
+     
     $.ajax({
             data:  values, //datos que se envian a traves de ajax
             url:   '../baseDeDatos/insert_detalle.php', //archivo que recibe la peticion
             type:  'post', //método de envio
             beforeSend: function () {
-                    $("#respuesta").html("insertando...");
+                  //  $("#respuesta").html("");
             },
            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                    $("#respuesta").html("ok");
+                    $("#respuesta").html("");
+                    $("#cantidadprod").val("1");
+                    $("#descuento-por-producto").val("0");
+                    alert("Item agregado correctamente");
+                    
             }
     });    
     
 }
-
-
 
     </script>
     </body>
