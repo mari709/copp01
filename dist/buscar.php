@@ -12,7 +12,13 @@ limit 1";
 
 $hacer = mysqli_query($link2,$sql);
 $num = mysqli_fetch_assoc($hacer);
-$showhacer = $num['precio_siniva'];
+
+if(mysqli_num_rows($hacer)==0){$showhacer = 0;}
+else
+{ 
+    $showhacer = $num['precio_siniva'];
+}
+
 $_SESSION['psi'] = $showhacer;
 
 

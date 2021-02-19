@@ -1,6 +1,8 @@
 <?php
 session_name("loginUsuario"); 
 session_start();
+$_SESSION['session_subtotal1'] = 0 ;
+$_SESSION['psi'] = 0;
 
 include_once("metodosDePHP.php");
 Seguridad::integridadSistema();
@@ -102,6 +104,7 @@ function operarPrecio(valor2,valor3){ //calcula el producto unidad-cantidad-desc
             "valorCaja3" : valor3
             
     };
+    console.log("Se llamó función operar precio");
   
     $.ajax({
             data:  valores, //datos que se envian a traves de ajax
@@ -114,7 +117,6 @@ function operarPrecio(valor2,valor3){ //calcula el producto unidad-cantidad-desc
                     $("#respuesta").html(response);
             }
     });    
-    
 }
 //revisar input para q manualmente respete lo indicado 
 /*
@@ -128,12 +130,22 @@ inputCantProducto.addEventListener('inputCantProducto',function(){
 $(document).on('click','#confirmar-articulo', function(){
     var valora = $('#cantidadprod').val();
     var valorb = $('#descuento-por-producto').val();
-    var valorc = $('#select-familia').val();
-    var valord = $('#select-productos').val();
+    var valorc = $('#select-familia').val();//
+    var valord = $('#select-productos').val();//
     var valore = $('#last').val();
 
+
+    if((valorc!='0')&&(valord)!='0'){
+       
     f_confirmar_producto(valora,valorb,valorc,valord,valore);
+    }
+    else{
+alert("datos incompletos"); 
+    }
+
     
+
+
 });
 
 function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el producto unidad-cantidad-descuento
@@ -163,7 +175,7 @@ function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el 
                   //  $("#respuesta").html("");
             },
            success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-                    $("#respuesta").html("");
+                    $("#respuesta").html(response);
                     $("#cantidadprod").val("1");
                     $("#descuento-por-producto").val("0");
                    // alert("Item agregado correctamente");
