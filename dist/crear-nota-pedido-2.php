@@ -154,6 +154,7 @@ function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el 
       console.log('---------------------------------');
       
      
+
     $.ajax({
             data:  values, //datos que se envian a traves de ajax
             url:   '../baseDeDatos/insert_detalle.php', //archivo que recibe la peticion
@@ -165,7 +166,7 @@ function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el 
                     $("#respuesta").html("");
                     $("#cantidadprod").val("1");
                     $("#descuento-por-producto").val("0");
-                    alert("Item agregado correctamente");
+                   // alert("Item agregado correctamente");
                     
             }
     });    
