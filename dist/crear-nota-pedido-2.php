@@ -143,9 +143,6 @@ $(document).on('click','#confirmar-articulo', function(){
 alert("datos incompletos"); 
     }
 
-    
-
-
 });
 
 function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el producto unidad-cantidad-descuento
@@ -178,7 +175,7 @@ function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el 
                     $("#respuesta").html(response);
                     $("#cantidadprod").val("1");
                     $("#descuento-por-producto").val("0");
-                   // alert("Item agregado correctamente");
+                    alert("Item agregado correctamente");
                     
             }
     });    
