@@ -31,7 +31,7 @@
 
 	$resultadoM = mysqli_query($link2, $queryM);
 	
-	$html= "<option value='3'>Selecciona Producto</option>";
+	$html= "<option value='0'>Selecciona Producto</option>";
 	
 	while($rowM = $resultadoM->fetch_assoc())
 	{
