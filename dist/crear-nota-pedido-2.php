@@ -76,7 +76,7 @@ Seguridad::integridadSistema();
                                         </div> <!-- fin div id divTablaProd  -->
                                             <div class="col-md-4">
                                                 <input class="form-control" type="text" id="last" name ="last" value = <?php  echo $numero; ?>  hidden/>
-                                                <input class=" form-control btn btn-primary"  id="confirmar-articulo" name="enviar" value="Guardar" />
+                                                <input type="button" class=" form-control btn btn-primary"  id="confirmar-articulo" name="enviar" value="Guardar" />
                                             </div>
                                     </form> <!-- fin form combo -->
                                 </div>
