@@ -63,13 +63,13 @@ Seguridad::integridadSistema();
                                                 </thead>   
                                                 <tbody>
                                                     <tr>
-                                                      <td><span id = "valueshow" class='variablesproducto'></span></td>
+                                                      <td><span id = "valueshow" class='variablesproducto'>0</span></td>
 <!--
                                                         <td><label id = "valueshow"></label></td>
     -->                                                    
                                                         <td><input type="number" id="cantidadprod" name="cantidadprod" value="1" min="1" max="999" class ='variablesproducto'/></td>
                                                         <td><input type="number" id="descuento-por-producto" name="descuento-por-producto" value="0" min="0" max="100"class='variablesproducto'/></td>
-                                                        <td><span id = "respuesta"></span></td>
+                                                        <td><span id = "respuesta">0</span></td>
                                                     </tr>
                                                 </tbody> 
                                             </table>
@@ -98,13 +98,20 @@ Seguridad::integridadSistema();
     
 });
 
+
+    $(document).on('change','#select-familia',function(){
+        $("#valueshow").html("0");
+        $("#respuesta").html("0");
+    
+    });
+
 function operarPrecio(valor2,valor3){ //calcula el producto unidad-cantidad-descuento
     var valores = {
             "valorCaja2" : valor2,
             "valorCaja3" : valor3
             
     };
-    console.log("Se llamó función operar precio");
+    //console.log("Se llamó función operar precio");
   
     $.ajax({
             data:  valores, //datos que se envian a traves de ajax
@@ -134,14 +141,19 @@ $(document).on('click','#confirmar-articulo', function(){
     var valord = $('#select-productos').val();//
     var valore = $('#last').val();
 
+   
+    
+    if((valorc=='0'))
+    {alert("Escoja una familiar por favor");}
 
-    if((valorc!='0')&&(valord)!='0'){
-       
-    f_confirmar_producto(valora,valorb,valorc,valord,valore);
+    if((valorc!='0')&&(valord=='0')){
+       alert("Escoja un producto por favor"); 
+                                     }
+    if((valorc!='0')&&(valord!='0')){
+         f_confirmar_producto(valora,valorb,valorc,valord,valore);
     }
-    else{
-alert("datos incompletos"); 
-    }
+
+    
 
 });
 
@@ -154,13 +166,13 @@ function f_confirmar_producto(valor2,valor3,valor4,valor5,valor6){ //calcula el 
             "vCaja6" : valor6
     };
 
-      console.log('-- valores que se van a grabar --');
+      console.log('-- grabar --');
       console.log(values.vCaja2);//cantidad
-      console.log(values.vCaja3);//descuento
+      console.log(values.vCaja3);//descuento <--------
       console.log(values.vCaja4);//id_familia
       console.log(values.vCaja5);//id_producto
       console.log(values.vCaja6);//last
-      console.log('---------------------------------');
+      console.log('------------');
       
      
 
