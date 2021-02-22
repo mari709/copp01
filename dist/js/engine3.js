@@ -20,10 +20,10 @@ function buscar_datos(consulta){
 $(document).on('change','#select-productos',function(){
 
  var valor = $(this).val();
- console.log(valor);
+// console.log(valor);
  if(valor !=""){
 	 buscar_datos(valor);
-	 console.log("algo cambio en select productos");
+	// console.log("algo cambio en select productos");
 	
  }else{
  	buscar_datos();
