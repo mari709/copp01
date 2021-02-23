@@ -102,6 +102,18 @@ Seguridad::integridadSistema();
     $(document).on('change','#select-familia',function(){
         $("#valueshow").html("0");
         $("#respuesta").html("0");
+        $("#cantidadprod").val("1");
+        $("#descuento-por-producto").val("0");
+        $.ajax({
+		url: 'borrapsi.php',
+		type:'POST',
+		dataType: 'html',
+	
+	})
+	.done(function(){
+        console.log("se blanqueo el psi");
+  
+	})
     
     });
 
